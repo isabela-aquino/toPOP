@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".activity_registrar">
 
+    <ImageView
+        android:id="@+id/voltar5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow" />
+
     <Button
         android:id="@+id/btnTelaRegistrar"
         android:layout_width="331dp"
@@ -124,6 +134,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
         android:fontFamily="sans-serif-light"
         android:text="Registrar"
         android:textColor="#1E232C"
@@ -131,9 +142,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtUsenamer"
-        app:layout_constraintStart_toStartOf="@+id/txtUsenamer"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.784" />
+        app:layout_constraintStart_toStartOf="@+id/txtUsenamer" />
 
     <EditText
         android:id="@+id/txtEmail"
@@ -179,16 +188,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-    <ImageButton
-        android:id="@+id/imgbVoltar"
-        android:layout_width="67dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_arrow_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
