@@ -4,5 +4,8 @@
     <string name="prompt_username">Nome de Usuário</string>
     <string name="prompt_password">Senha</string>
     <string name="prompt_confirm_password">Confirmar Senha</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_search">Pesquisa</string>
+    <string name="menu_profile">Perfil</string>
 
 </resources>
