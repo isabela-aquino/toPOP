@@ -1,14 +1,16 @@
-package com.example.topop;
+package com.example.topop.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class activity_login extends AppCompatActivity {
+import com.example.topop.R;
+
+public class activity_list_books extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_list_books);
     }
 }

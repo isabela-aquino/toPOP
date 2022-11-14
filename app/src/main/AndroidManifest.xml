@@ -15,77 +15,77 @@
         android:theme="@style/Theme.ToPOP"
         tools:targetApi="31">
         <activity
-            android:name=".activity_serie_details"
+            android:name=".activity.activity_serie_details"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_movie_details"
+            android:name=".activity.activity_movie_details"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_book_details"
+            android:name=".activity.activity_book_details"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_list_serie"
+            android:name=".activity.activity_list_serie"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_list_books"
+            android:name=".activity.activity_list_books"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_list_movie"
+            android:name=".activity.activity_list_movie"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_profile"
+            android:name=".activity.activity_profile"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_search"
+            android:name=".activity.activity_search"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_pagina_inicial"
+            android:name=".activity.activity_pagina_inicial"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_login"
+            android:name=".activity.activity_login"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activity_registrar"
+            android:name=".activity.activity_registrar"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -93,7 +93,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/menu_home">
+    <activity
+        android:id="@+id/menu_home"
+        android:name="com.example.topop.activity.activity_pagina_inicial"
+        android:label="activity_pagina_inicial"
+        tools:layout="@layout/activity_pagina_inicial" />
+    <activity
+        android:id="@+id/menu_search"
+        android:name="com.example.topop.activity.activity_search"
+        android:label="activity_search"
+        tools:layout="@layout/activity_search" />
+    <activity
+        android:id="@+id/menu_profile"
+        android:name="com.example.topop.activity.activity_profile"
+        android:label="activity_profile"
+        tools:layout="@layout/activity_profile" />
+</navigation>

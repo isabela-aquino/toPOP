@@ -1,4 +1,4 @@
-package com.example.topop;
+package com.example.topop.fragments;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.topop.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link fragment_searchseries#newInstance} factory method to
+ * Use the {@link JaAssistiSeriesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fragment_searchseries extends Fragment {
+public class JaAssistiSeriesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class fragment_searchseries extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public fragment_searchseries() {
+    public JaAssistiSeriesFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class fragment_searchseries extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_searchseries.
+     * @return A new instance of fragment JaAssistiSeriesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static fragment_searchseries newInstance(String param1, String param2) {
-        fragment_searchseries fragment = new fragment_searchseries();
+    public static JaAssistiSeriesFragment newInstance(String param1, String param2) {
+        JaAssistiSeriesFragment fragment = new JaAssistiSeriesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class fragment_searchseries extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_searchseries, container, false);
+        return inflater.inflate(R.layout.fragment_ja_assisti_series, container, false);
     }
 }

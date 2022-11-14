@@ -4,8 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_search">
+    tools:context=".activity.activity_search">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
 
     <EditText
         android:id="@+id/txtSearch"
@@ -21,15 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
+
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -68,12 +69,14 @@
             app:tabTextColor="#FFFFFF">
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tablJaLi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:icon="@drawable/ic_book" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tablQueroLer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_movie"
@@ -81,6 +84,7 @@
                 tools:layout_editor_absoluteY="123dp" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabIEstouLendo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_serie"
@@ -91,7 +95,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <FrameLayout
-        android:id="@+id/frameSearch"
+        android:id="@+id/frameBooks"
         android:layout_width="0dp"
         android:layout_height="478dp"
         android:layout_marginStart="15dp"
