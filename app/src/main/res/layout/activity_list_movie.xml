@@ -40,14 +40,14 @@
             app:tabTextColor="#FFFFFF">
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tablJaVi"
+                android:id="@+id/tablJaAssisti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:text="Já Assisti" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tablQueroVer"
+                android:id="@+id/tablQueroAssistir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quero Assistir"
