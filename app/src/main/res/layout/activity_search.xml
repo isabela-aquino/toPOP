@@ -69,14 +69,14 @@
             app:tabTextColor="#FFFFFF">
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tablJaLi"
+                android:id="@+id/tablBook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:icon="@drawable/ic_book" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tablQueroLer"
+                android:id="@+id/tablMovie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_movie"
@@ -84,7 +84,7 @@
                 tools:layout_editor_absoluteY="123dp" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabIEstouLendo"
+                android:id="@+id/tablSerie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_serie"

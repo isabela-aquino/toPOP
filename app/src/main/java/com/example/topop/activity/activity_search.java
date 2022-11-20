@@ -26,9 +26,9 @@ public class activity_search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        tabIBooks = findViewById(R.id.tablJaLi);
-        tabIMovies = findViewById(R.id.tablQueroLer);
-        tabISeries = findViewById(R.id.tabIEstouLendo);
+        tabIBooks = findViewById(R.id.tablBook);
+        tabIMovies = findViewById(R.id.tablMovie);
+        tabISeries = findViewById(R.id.tablSerie);
 
         searchBookFragment = new SearchBookFragment();
 
