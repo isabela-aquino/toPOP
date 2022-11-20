@@ -32,14 +32,14 @@ public class activity_list_serie extends AppCompatActivity {
         jaAssistiSeriesFragment = new JaAssistiSeriesFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frameBooks, jaAssistiSeriesFragment);
+        transaction.add(R.id.frameConteudoBooks, jaAssistiSeriesFragment);
         transaction.commit();
 
         tabIJaVi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameBooks, jaAssistiSeriesFragment);
+                transaction.add(R.id.frameConteudoBooks, jaAssistiSeriesFragment);
                 transaction.commit();
             }
         });
@@ -49,7 +49,7 @@ public class activity_list_serie extends AppCompatActivity {
             public void onClick(View view) {
                 queroAssistirSeriesFragment = new QueroAssistirSeriesFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameBooks, queroAssistirSeriesFragment);
+                transaction.add(R.id.frameConteudoBooks, queroAssistirSeriesFragment);
                 transaction.commit();
             }
         });
@@ -59,7 +59,7 @@ public class activity_list_serie extends AppCompatActivity {
             public void onClick(View view) {
                 estouAssistindoSeriesFragment = new EstouAssistindoSeriesFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameBooks, estouAssistindoSeriesFragment);
+                transaction.add(R.id.frameConteudoBooks, estouAssistindoSeriesFragment);
                 transaction.commit();
             }
         });

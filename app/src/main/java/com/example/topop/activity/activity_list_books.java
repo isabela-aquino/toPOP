@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.topop.R;
-import com.example.topop.fragments.EstouAssistindoSeriesFragment;
 import com.example.topop.fragments.EstouLendoBooksFragment;
 import com.example.topop.fragments.JaLiBooksFragment;
 import com.example.topop.fragments.QueroLerBooksFragment;
@@ -33,14 +32,14 @@ public class activity_list_books extends AppCompatActivity {
         jaLiBooksFragment = new JaLiBooksFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frameBooks, jaLiBooksFragment);
+        transaction.add(R.id.frameConteudoBooks, jaLiBooksFragment);
         transaction.commit();
 
         tabIJaLi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameBooks, jaLiBooksFragment);
+                transaction.add(R.id.frameConteudoBooks, jaLiBooksFragment);
                 transaction.commit();
             }
         });
@@ -50,7 +49,7 @@ public class activity_list_books extends AppCompatActivity {
             public void onClick(View view) {
                 queroLerBooksFragment = new QueroLerBooksFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameBooks, queroLerBooksFragment);
+                transaction.add(R.id.frameConteudoBooks, queroLerBooksFragment);
                 transaction.commit();
             }
         });
@@ -60,7 +59,7 @@ public class activity_list_books extends AppCompatActivity {
             public void onClick(View view) {
                 estouLendoBooksFragment = new EstouLendoBooksFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameBooks, estouLendoBooksFragment);
+                transaction.add(R.id.frameConteudoBooks, estouLendoBooksFragment);
                 transaction.commit();
             }
         });

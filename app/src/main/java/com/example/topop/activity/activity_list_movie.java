@@ -7,11 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.topop.R;
-import com.example.topop.fragments.EstouAssistindoSeriesFragment;
 import com.example.topop.fragments.JaAssistiMoviesFragment;
-import com.example.topop.fragments.JaAssistiSeriesFragment;
 import com.example.topop.fragments.QueroAssistirMoviesFragment;
-import com.example.topop.fragments.QueroAssistirSeriesFragment;
 import com.google.android.material.tabs.TabItem;
 
 public class activity_list_movie extends AppCompatActivity {
@@ -33,14 +30,14 @@ public class activity_list_movie extends AppCompatActivity {
         jaAssistiMoviesFragment = new JaAssistiMoviesFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frameBooks, jaAssistiMoviesFragment);
+        transaction.add(R.id.frameConteudoBooks, jaAssistiMoviesFragment);
         transaction.commit();
 
         tabIJaAssisti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameBooks, jaAssistiMoviesFragment);
+                transaction.add(R.id.frameConteudoBooks, jaAssistiMoviesFragment);
                 transaction.commit();
             }
         });
@@ -50,7 +47,7 @@ public class activity_list_movie extends AppCompatActivity {
             public void onClick(View view) {
                 queroAssistirMoviesFragment = new QueroAssistirMoviesFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameBooks, queroAssistirMoviesFragment);
+                transaction.add(R.id.frameConteudoBooks, queroAssistirMoviesFragment);
                 transaction.commit();
             }
         });

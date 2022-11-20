@@ -34,14 +34,14 @@ public class activity_search extends AppCompatActivity {
         searchBookFragment = new SearchBookFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frameBooks, searchBookFragment);
+        transaction.add(R.id.frameConteudoBooks, searchBookFragment);
         transaction.commit();
 
         tabIBooks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameBooks, searchBookFragment);
+                transaction.replace(R.id.frameConteudoBooks, searchBookFragment);
                 transaction.commit();
             }
         });
@@ -51,7 +51,7 @@ public class activity_search extends AppCompatActivity {
             public void onClick(View view) {
                 searchMovieFragment = new SearchMovieFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameBooks, searchMovieFragment);
+                transaction.replace(R.id.frameConteudoBooks, searchMovieFragment);
                 transaction.commit();
             }
         }));
@@ -61,7 +61,7 @@ public class activity_search extends AppCompatActivity {
             public void onClick(View view) {
                 searchSerieFragment = new SearchSerieFragment();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameBooks, searchSerieFragment);
+                transaction.replace(R.id.frameConteudoBooks, searchSerieFragment);
                 transaction.commit();
             }
         });
