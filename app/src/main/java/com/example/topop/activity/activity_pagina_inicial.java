@@ -28,7 +28,7 @@ public class activity_pagina_inicial extends AppCompatActivity {
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavigation);
 
         // Set Home selected
-        bottomNavigationView.setSelectedItemId(R.id.menu_home);
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
         // Perform item selected listener
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
@@ -37,13 +37,13 @@ public class activity_pagina_inicial extends AppCompatActivity {
 
                 switch(item.getItemId())
                 {
-                    case R.id.menu_home:
+                    case R.id.home:
                         return true;
-                    case R.id.menu_search:
+                    case R.id.search:
                         startActivity(new Intent(getApplicationContext(), activity_search.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.menu_profile:
+                    case R.id.profile:
                         startActivity(new Intent(getApplicationContext(), activity_profile.class));
                         overridePendingTransition(0,0);
                         return true;
