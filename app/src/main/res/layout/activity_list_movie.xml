@@ -21,7 +21,7 @@
         android:layout_width="350dp"
 
         android:layout_height="60dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="#000000"
         app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,9 +31,10 @@
         app:strokeWidth="2dp">
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/TabLayoutMovie"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
 
+            android:layout_height="60dp"
             android:backgroundTint="#000000"
             app:tabIconTint="@color/white"
             app:tabIndicatorColor="#FFFFFF"
@@ -44,15 +45,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
-                android:text="Já Assisti" />
+                android:text="Já Assisti"
+                tools:layout_editor_absoluteX="31dp"
+                tools:layout_editor_absoluteY="68dp" />
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tablQueroAssistir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quero Assistir"
-                tools:layout_editor_absoluteX="208dp"
-                tools:layout_editor_absoluteY="123dp" />
+                tools:layout_editor_absoluteX="204dp"
+                tools:layout_editor_absoluteY="55dp" />
 
 
         </com.google.android.material.tabs.TabLayout>
@@ -61,7 +64,7 @@
     <FrameLayout
         android:id="@+id/frameMovies"
         android:layout_width="0dp"
-        android:layout_height="478dp"
+        android:layout_height="500dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="15dp"

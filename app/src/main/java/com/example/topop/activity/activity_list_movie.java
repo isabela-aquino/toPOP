@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.topop.R;
+import com.example.topop.fragments.EstouLendoBooksFragment;
 import com.example.topop.fragments.JaAssistiMoviesFragment;
+import com.example.topop.fragments.JaLiBooksFragment;
 import com.example.topop.fragments.QueroAssistirMoviesFragment;
+import com.example.topop.fragments.QueroLerBooksFragment;
 import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 public class activity_list_movie extends AppCompatActivity {
 
-    private TabItem tabIJaAssisti, tabIQueroAssistir;
+    private TabLayout tabLayoutMovie;
 
     private JaAssistiMoviesFragment jaAssistiMoviesFragment;
     private QueroAssistirMoviesFragment queroAssistirMoviesFragment;
@@ -23,32 +27,41 @@ public class activity_list_movie extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_movie);
 
-        tabIJaAssisti = findViewById(R.id.tablJaAssisti);
-        tabIQueroAssistir = findViewById(R.id.tablQueroAssistir);
-
+        tabLayoutMovie = (TabLayout) findViewById(R.id.TabLayoutMovie);
 
         jaAssistiMoviesFragment = new JaAssistiMoviesFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frameConteudoBooks, jaAssistiMoviesFragment);
+        transaction.add(R.id.frameMovies, jaAssistiMoviesFragment);
         transaction.commit();
 
-        tabIJaAssisti.setOnClickListener(new View.OnClickListener() {
+        tabLayoutMovie.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameConteudoBooks, jaAssistiMoviesFragment);
-                transaction.commit();
-            }
-        });
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()){
+                    case 0:
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frameMovies, jaAssistiMoviesFragment);
+                        transaction.commit();
+                        break;
+                    case 1:
+                        queroAssistirMoviesFragment = new QueroAssistirMoviesFragment();
+                        transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frameMovies, queroAssistirMoviesFragment);
+                        transaction.commit();
 
-        tabIQueroAssistir.setOnClickListener(new View.OnClickListener() {
+                        break;
+                }
+            }
+
             @Override
-            public void onClick(View view) {
-                queroAssistirMoviesFragment = new QueroAssistirMoviesFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameConteudoBooks, queroAssistirMoviesFragment);
-                transaction.commit();
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
 

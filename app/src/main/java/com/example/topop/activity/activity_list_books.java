@@ -11,10 +11,11 @@ import com.example.topop.fragments.EstouLendoBooksFragment;
 import com.example.topop.fragments.JaLiBooksFragment;
 import com.example.topop.fragments.QueroLerBooksFragment;
 import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 public class activity_list_books extends AppCompatActivity {
 
-    private TabItem tabIJaLi, tabIQueroLer, tabIEstouLendo;
+    private TabLayout tabLayout;
 
     private JaLiBooksFragment jaLiBooksFragment;
     private QueroLerBooksFragment queroLerBooksFragment;
@@ -25,9 +26,7 @@ public class activity_list_books extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_books);
 
-        tabIJaLi = findViewById(R.id.tablJaLi);
-        tabIQueroLer = findViewById(R.id.tablQueroLer);
-        tabIEstouLendo = findViewById(R.id.tabIEstouLendo);
+        tabLayout = (TabLayout) findViewById(R.id.TabLayoutBooks);
 
         jaLiBooksFragment = new JaLiBooksFragment();
 
@@ -35,32 +34,39 @@ public class activity_list_books extends AppCompatActivity {
         transaction.add(R.id.frameConteudoBooks, jaLiBooksFragment);
         transaction.commit();
 
-        tabIJaLi.setOnClickListener(new View.OnClickListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameConteudoBooks, jaLiBooksFragment);
-                transaction.commit();
-            }
-        });
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()){
+                    case 0:
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frameConteudoBooks, jaLiBooksFragment);
+                        transaction.commit();
+                        break;
+                    case 1:
+                        queroLerBooksFragment = new QueroLerBooksFragment();
+                        transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frameConteudoBooks, queroLerBooksFragment);
+                        transaction.commit();
 
-        tabIQueroLer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                queroLerBooksFragment = new QueroLerBooksFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameConteudoBooks, queroLerBooksFragment);
-                transaction.commit();
+                        break;
+                    case 2:
+                        estouLendoBooksFragment = new EstouLendoBooksFragment();
+                        transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frameConteudoBooks, estouLendoBooksFragment);
+                        transaction.commit();
+                        break;
+                }
             }
-        });
 
-        tabIEstouLendo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                estouLendoBooksFragment = new EstouLendoBooksFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.frameConteudoBooks, estouLendoBooksFragment);
-                transaction.commit();
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
     }

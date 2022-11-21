@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="70dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -28,14 +28,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginRight="50dp"
-
-                    app:cardBackgroundColor="@drawable/gradient"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/gradient"
+                        android:background="@color/cinza"
                         android:orientation="vertical">
 
                         <ImageView
@@ -62,13 +60,12 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@drawable/gradient"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/gradient"
+                        android:background="@color/cinza"
                         android:orientation="vertical">
 
                         <ImageView
@@ -106,14 +103,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginRight="50dp"
-
-                    app:cardBackgroundColor="@drawable/gradient"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/gradient"
+                        android:background="@color/cinza"
                         android:orientation="vertical">
 
                         <ImageView
@@ -140,13 +135,12 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@drawable/gradient"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/gradient"
+                        android:background="@color/cinza"
                         android:orientation="vertical">
 
                         <ImageView
@@ -177,6 +171,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
+                android:layout_marginBottom="200dp"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -184,14 +179,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginRight="50dp"
-
-                    app:cardBackgroundColor="@drawable/gradient"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/gradient"
+                        android:background="@color/cinza"
                         android:orientation="vertical">
 
                         <ImageView
@@ -218,13 +211,12 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@drawable/gradient"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/gradient"
+                        android:background="@color/cinza"
                         android:orientation="vertical">
 
                         <ImageView

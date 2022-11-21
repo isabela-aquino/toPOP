@@ -12,10 +12,13 @@ import com.example.topop.fragments.SearchBookFragment;
 import com.example.topop.fragments.SearchMovieFragment;
 import com.example.topop.fragments.SearchSerieFragment;
 import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 
 public class activity_search extends AppCompatActivity {
 
-    private TabItem tabISeries, tabIMovies, tabIBooks;
+
+
+    private TabLayout tabLayout;
 
     private SearchBookFragment searchBookFragment;
     private SearchMovieFragment searchMovieFragment;
@@ -27,9 +30,9 @@ public class activity_search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        tabIBooks = findViewById(R.id.tablBook);
-        tabIMovies = findViewById(R.id.tablMovie);
-        tabISeries = findViewById(R.id.tablSerie);
+
+
+        tabLayout = (TabLayout) findViewById(R.id.TabLayoutSearch);
 
         searchBookFragment = new SearchBookFragment();
 
@@ -37,33 +40,42 @@ public class activity_search extends AppCompatActivity {
         transaction.add(R.id.frameConteudoBooks, searchBookFragment);
         transaction.commit();
 
-        tabIBooks.setOnClickListener(new View.OnClickListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameConteudoBooks, searchBookFragment);
-                transaction.commit();
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (tab.getPosition()) {
+                    case 0:
+                        searchBookFragment = new SearchBookFragment();
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frameConteudoBooks, searchBookFragment);
+                        transaction.commit();
+                        break;
+                    case 1:
+                        searchMovieFragment = new SearchMovieFragment();
+                        transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frameConteudoBooks, searchMovieFragment);
+                        transaction.commit();
+                        break;
+                    case 2:
+                        searchSerieFragment = new SearchSerieFragment();
+                        transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.frameConteudoBooks, searchSerieFragment);
+                        transaction.commit();
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
 
-        tabIMovies.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                searchMovieFragment = new SearchMovieFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameConteudoBooks, searchMovieFragment);
-                transaction.commit();
-            }
-        }));
-
-        tabISeries.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                searchSerieFragment = new SearchSerieFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameConteudoBooks, searchSerieFragment);
-                transaction.commit();
-            }
-        });
     }
 }
