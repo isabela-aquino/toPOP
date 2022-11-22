@@ -9,8 +9,8 @@
     tools:context=".activity.activity_login">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -21,164 +21,150 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/voltarLogin"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="48dp"
+                app:srcCompat="@drawable/ic_baseline_arrow" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Entrar"
+                android:textColor="#1E232C"
+                android:textColorHint="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="331dp"
+                android:layout_height="56dp"
+                android:background="#4DE8ECF4"
+                android:backgroundTint="#9A9B9F"
+                android:hint="@string/prompt_email"
+                android:paddingLeft="10dp"
+                android:selectAllOnFocus="true" />
+
+            <EditText
+                android:id="@+id/txtPassword"
+                android:layout_width="331dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="15dp"
+                android:background="#4DE8ECF4"
+                android:backgroundTint="#9A9B9F"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/prompt_password"
+                android:paddingLeft="10dp" />
+
+            <Button
+                android:id="@+id/btnTelaEntrar"
+                android:layout_width="331dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#000000"
+                android:text="Entrar"
+                app:cornerRadius="8dp"
+                app:iconTint="#000000" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="40dp"
+                android:text="Esqueceu a senha?"
+                android:textColor="#6A707C"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Ou Registrar com:"
+                android:textColor="#6A707C"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgbFacebook4"
+                    style="@android:style/Widget.DeviceDefault.ImageButton"
+                    android:layout_width="105dp"
+                    android:layout_height="56dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="#FFFFFF"
+                    app:srcCompat="@mipmap/ic_logofacebook_foreground" />
+
+                <ImageButton
+                    android:id="@+id/imgbGoogle4"
+                    android:layout_width="105dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#FFFFFF"
+                    app:srcCompat="@mipmap/ic_logogoogle_foreground"
+                    app:strokeColor="#000000"
+                    app:strokeWidth="1dp"
+                    tools:srcCompat="@mipmap/ic_logogoogle_foreground" />
+
+                <ImageButton
+                    android:id="@+id/imgbTwitter4"
+                    android:layout_width="105dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="#FFFFFF"
+                    app:srcCompat="@mipmap/ic_logotwiter_foreground"
+                    app:strokeColor="#000000"
+                    app:strokeWidth="1dp"
+                    tools:srcCompat="@mipmap/ic_logotwiter_foreground" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Não tem conta?"
+                    android:textColor="#1E232C" />
+
+                <TextView
+                    android:id="@+id/TvRegistrese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:singleLine="false"
+                    android:text="Registre-se agora"
+                    android:textColor="#35C2C1" />
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
-
-    <ImageView
-        android:id="@+id/voltar3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow" />
-
-    <ImageButton
-        android:id="@+id/imgbGoogle4"
-        android:layout_width="105dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/imgbFacebook4"
-        app:layout_constraintStart_toEndOf="@+id/imgbFacebook4"
-        app:srcCompat="@mipmap/ic_logogoogle_foreground"
-        app:strokeColor="#000000"
-        app:strokeWidth="1dp"
-        tools:srcCompat="@mipmap/ic_logogoogle_foreground" />
-
-    <TextView
-        android:id="@+id/TvRegistrese"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:singleLine="false"
-        android:text="Registre-se agora"
-        android:textColor="#35C2C1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView15" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Entrar"
-        android:textColor="#1E232C"
-        android:textColorHint="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtEmail"
-        app:layout_constraintStart_toStartOf="@+id/txtEmail" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Ou Registrar com:"
-        android:textColor="#6A707C"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/imgbGoogle4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTelaEntrar"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/imgbFacebook4"
-        style="@android:style/Widget.DeviceDefault.ImageButton"
-        android:layout_width="105dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="104dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/btnTelaEntrar"
-        app:layout_constraintTop_toBottomOf="@+id/btnTelaEntrar"
-        app:srcCompat="@mipmap/ic_logofacebook_foreground" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Esqueceu a senha?"
-        android:textColor="#6A707C"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/btnTelaEntrar"
-        app:layout_constraintTop_toBottomOf="@+id/btnTelaEntrar" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="32dp"
-        android:text="Não tem conta?"
-        android:textColor="#1E232C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbFacebook4"
-        app:layout_constraintVertical_bias="0.793" />
-
-    <ImageButton
-        android:id="@+id/imgbTwitter4"
-        android:layout_width="105dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/btnTelaEntrar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgbGoogle4"
-        app:layout_constraintTop_toTopOf="@+id/imgbGoogle4"
-        app:srcCompat="@mipmap/ic_logotwiter_foreground"
-        app:strokeColor="#000000"
-        app:strokeWidth="1dp"
-        tools:srcCompat="@mipmap/ic_logotwiter_foreground" />
-
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="331dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:background="#4DE8ECF4"
-        android:backgroundTint="#9A9B9F"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:hint="@string/prompt_password"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
-
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="331dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="140dp"
-        android:background="#4DE8ECF4"
-        android:backgroundTint="#9A9B9F"
-        android:hint="@string/prompt_email"
-        android:paddingLeft="10dp"
-        android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnTelaEntrar"
-        android:layout_width="331dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#000000"
-        android:text="Entrar"
-        app:cornerRadius="8dp"
-        app:iconTint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

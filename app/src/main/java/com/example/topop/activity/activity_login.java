@@ -2,10 +2,12 @@ package com.example.topop.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.topop.R;
@@ -14,6 +16,7 @@ public class activity_login extends AppCompatActivity {
 
     public Button btnTelaEntrar;
     public TextView textViewRegistrar;
+    public ImageView imageViewVoltarLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +27,13 @@ public class activity_login extends AppCompatActivity {
 
         textViewRegistrar = (TextView) findViewById(R.id.TvRegistrese);
 
+        imageViewVoltarLogin = (ImageView) findViewById(R.id.voltarLogin);
+
         btnTelaEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                abrirTelaInicial();
+                Intent intent = new Intent(activity_login.this, activity_pagina_inicial.class);
+                startActivity(intent);
             }
         });
 
@@ -38,10 +44,14 @@ public class activity_login extends AppCompatActivity {
                startActivity(myIntent);
            }
        });
+
+       imageViewVoltarLogin.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent myIntent = new Intent(activity_login.this, MainActivity.class);
+               startActivity(myIntent);
+           }
+       });
     }
 
-    public void abrirTelaInicial(){
-        Intent intent = new Intent(this, activity_pagina_inicial.class);
-        startActivity(intent);
-    }
 }
