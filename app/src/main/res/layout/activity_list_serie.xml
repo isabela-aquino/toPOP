@@ -21,14 +21,14 @@
         android:layout_width="350dp"
 
         android:layout_height="60dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="#000000"
-        app:cardCornerRadius="50dp"
+        app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="?attr/colorAccent"
+        app:strokeColor="@color/black"
         app:strokeWidth="2dp">
 
         <com.google.android.material.tabs.TabLayout
@@ -37,9 +37,9 @@
 
             android:layout_height="60dp"
             android:backgroundTint="#000000"
-            app:tabIconTint="@color/white"
+            app:tabBackground="@drawable/tab_bg_selector"
             app:tabIndicatorColor="#FFFFFF"
-            app:tabTextColor="#FFFFFF">
+            app:tabTextColor="@drawable/tab_icon_selector">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tablJaVi"

@@ -51,7 +51,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="#000000"
-        app:cardCornerRadius="50dp"
+        app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSearch"
@@ -61,11 +61,11 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/TabLayoutSearch"
             android:layout_width="match_parent"
-
             android:layout_height="60dp"
             android:backgroundTint="#000000"
             app:layout_constraintTop_toBottomOf="@+id/txtSearch"
-            app:tabIconTint="@color/white"
+            app:tabBackground="@drawable/tab_bg_selector"
+            app:tabIconTint="@drawable/tab_icon_selector"
             app:tabIndicatorColor="#FFFFFF"
             app:tabTextColor="#FFFFFF">
 

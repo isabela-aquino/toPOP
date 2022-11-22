@@ -60,7 +60,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="50dp"
                 android:scrollbarAlwaysDrawHorizontalTrack="false"
-                android:scrollbarStyle="outsideInset">
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarThumbHorizontal="@color/white">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -208,15 +209,145 @@
                 android:textStyle="bold" />
 
             <HorizontalScrollView
-                android:layout_width="413dp"
-                android:layout_height="213dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarThumbHorizontal="@color/white"
+                android:scrollbars="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" />
+                    android:layout_marginRight="60dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iV5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="155dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@mipmap/ic_book1_foreground" />
+
+                        <TextView
+                            android:id="@+id/tV9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Orgulho e Preconceito"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tV10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Jane Austen" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iV6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="155dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@mipmap/ic_book1_foreground" />
+
+                        <TextView
+                            android:id="@+id/tV11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Orgulho e Preconceito"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tV12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Jane Austen" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iV7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="155dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@mipmap/ic_book1_foreground" />
+
+                        <TextView
+                            android:id="@+id/tV13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Orgulho e Preconceito"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tV14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Jane Austen" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iV8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="155dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@mipmap/ic_book1_foreground" />
+
+                        <TextView
+                            android:id="@+id/tV15"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Orgulho e Preconceito"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tV16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Jane Austen" />
+                    </LinearLayout>
+
+                </LinearLayout>
             </HorizontalScrollView>
 
             <TextView
@@ -235,7 +366,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="30dp"
-                android:layout_marginBottom="80dp">
+                android:layout_marginBottom="80dp"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarThumbHorizontal="@color/white">
 
                 <LinearLayout
                     android:layout_width="wrap_content"

@@ -25,7 +25,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="125dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="50dp"
                     app:cardCornerRadius="15dp">
@@ -33,7 +33,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/cinza"
+                        android:background="@drawable/gradient"
                         android:orientation="vertical">
 
                         <ImageView
@@ -59,13 +59,13 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="125dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/cinza"
+                        android:background="@drawable/gradient"
                         android:orientation="vertical">
 
                         <ImageView
@@ -73,7 +73,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:src="@mipmap/ic_book1_foreground" />
+                            android:src="@mipmap/img_dobra_foreground" />
 
                         <TextView
                             android:id="@+id/tVListEstouLendo2"
@@ -82,7 +82,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="Orgulho e Preconceito"
+                            android:text="Uma dobra no tempo"
                             android:textColor="#000000"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -100,7 +100,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="125dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="50dp"
                     app:cardCornerRadius="15dp">
@@ -108,7 +108,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/cinza"
+                        android:background="@drawable/gradient"
                         android:orientation="vertical">
 
                         <ImageView
@@ -116,7 +116,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:src="@mipmap/ic_book1_foreground" />
+                            android:src="@mipmap/img_principe_foreground" />
 
                         <TextView
                             android:id="@+id/tVListEstouLendo3"
@@ -125,7 +125,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="Orgulho e Preconceito"
+                            android:text="O pequeno Principe"
                             android:textColor="#000000"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -134,13 +134,13 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="125dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/cinza"
+                        android:background="@drawable/gradient"
                         android:orientation="vertical">
 
                         <ImageView
@@ -148,7 +148,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:src="@mipmap/ic_book1_foreground" />
+                            android:src="@mipmap/img_harry_potter_foreground" />
 
                         <TextView
                             android:id="@+id/tVListEstouLendo4"
@@ -157,7 +157,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="Orgulho e Preconceito"
+                            android:text="Harry Potter"
                             android:textColor="#000000"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -176,7 +176,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="125dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="50dp"
                     app:cardCornerRadius="15dp">
@@ -184,7 +184,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/cinza"
+                        android:background="@drawable/gradient"
                         android:orientation="vertical">
 
                         <ImageView
@@ -192,7 +192,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:src="@mipmap/ic_book1_foreground" />
+                            android:src="@mipmap/img_duna_foreground" />
 
                         <TextView
                             android:id="@+id/tVListEstouLendo5"
@@ -201,7 +201,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="Orgulho e Preconceito"
+                            android:text="Duna"
                             android:textColor="#000000"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -210,13 +210,13 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="125dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     app:cardCornerRadius="15dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/cinza"
+                        android:background="@drawable/gradient"
                         android:orientation="vertical">
 
                         <ImageView
@@ -224,7 +224,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:src="@mipmap/ic_book1_foreground" />
+                            android:src="@mipmap/img_acaba_foreground" />
 
                         <TextView
                             android:id="@+id/tVListEstouLendo6"
@@ -233,7 +233,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="Orgulho e Preconceito"
+                            android:text="É assim que acaba"
                             android:textColor="#000000"
                             android:textSize="16sp"
                             android:textStyle="bold" />
