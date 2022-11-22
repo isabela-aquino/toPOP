@@ -24,6 +24,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/CardViewLivro1"
                     android:layout_width="125dp"
                     android:layout_height="200dp"
                     android:layout_gravity="center"

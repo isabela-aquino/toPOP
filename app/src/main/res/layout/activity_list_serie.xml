@@ -32,9 +32,10 @@
         app:strokeWidth="2dp">
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/TabLayoutSerie"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
 
+            android:layout_height="60dp"
             android:backgroundTint="#000000"
             app:tabIconTint="@color/white"
             app:tabIndicatorColor="#FFFFFF"
