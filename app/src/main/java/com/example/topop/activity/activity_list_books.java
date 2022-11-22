@@ -2,6 +2,7 @@ package com.example.topop.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -30,6 +31,7 @@ public class activity_list_books extends AppCompatActivity {
         setContentView(R.layout.activity_list_books);
 
         tabLayout = (TabLayout) findViewById(R.id.TabLayoutBooks);
+
 
         jaLiBooksFragment = new JaLiBooksFragment();
 

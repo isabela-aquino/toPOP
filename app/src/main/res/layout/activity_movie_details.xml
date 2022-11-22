@@ -6,62 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.activity_movie_details">
 
-    <TextView
-        android:id="@+id/tituloMovie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Orgulho e Preconceito"
-        android:textColor="#000000"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageMovie" />
-
-    <TextView
-        android:id="@+id/produtoraMovie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Universal Studio"
-        android:textColor="#06070D"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloMovie" />
-
-    <TextView
-        android:id="@+id/sinopseMovie"
-        android:layout_width="312dp"
-        android:layout_height="86dp"
-        android:text="Orgulho e preconceito é o livro mais famoso de Jane Austen e possui uma série de personagens inesquecíveis e um enredo memorável."
-        android:textColor="#06070D"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="495dp" />
-
-    <ImageView
-        android:id="@+id/imageMovie"
-        android:layout_width="283dp"
-        android:layout_height="355dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_movie_foreground" />
-
-    <ImageView
-        android:id="@+id/voltar2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
@@ -72,32 +16,92 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 
-    <Button
-        android:id="@+id/btnQueroAssisti"
-        android:layout_width="140dp"
-        android:layout_height="47dp"
-        android:layout_marginEnd="48dp"
-        android:backgroundTint="#000000"
-        android:text="Quero Assistir"
-        android:textColor="#FFFFFF"
-        android:textSize="10sp"
-        app:iconTint="#000000"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnJaAssisti" />
-
-    <Button
-        android:id="@+id/btnJaAssisti"
-        android:layout_width="140dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="#000000"
-        android:text="Já Assisti"
-        android:textColor="#FFFFFF"
-        android:textSize="10sp"
-        app:iconTint="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/btnQueroAssisti"
-        app:layout_constraintHorizontal_bias="0.588"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sinopseMovie" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/voltar2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="38dp"
+                app:srcCompat="@drawable/ic_baseline_arrow" />
+
+            <ImageView
+                android:id="@+id/imageMovie"
+                android:layout_width="283dp"
+                android:layout_height="355dp"
+                app:srcCompat="@mipmap/ic_movie_foreground" />
+
+            <TextView
+                android:id="@+id/tituloMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orgulho e Preconceito"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/produtoraMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Universal Studio"
+                android:textColor="#06070D" />
+
+            <TextView
+                android:id="@+id/sinopseMovie"
+                android:layout_width="312dp"
+                android:layout_height="86dp"
+                android:layout_marginTop="10dp"
+                android:text="Orgulho e preconceito é o livro mais famoso de Jane Austen e possui uma série de personagens inesquecíveis e um enredo memorável."
+                android:textColor="#06070D"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnQueroAssisti"
+                    android:layout_width="140dp"
+                    android:layout_height="47dp"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="#000000"
+                    android:text="Quero Assistir"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    app:iconTint="#000000" />
+
+                <Button
+                    android:id="@+id/btnJaAssisti"
+                    android:layout_width="140dp"
+                    android:layout_height="47dp"
+                    android:backgroundTint="#000000"
+                    android:text="Já Assisti"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    app:iconTint="#000000" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

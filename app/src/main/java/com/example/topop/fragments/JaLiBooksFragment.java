@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 
 import com.example.topop.R;
 import com.example.topop.activity.activity_book_details;
-
+import com.example.topop.activity.activity_list_movie;
+import com.example.topop.activity.activity_movie_details;
+import com.example.topop.activity.activity_serie_details;
 
 
 /**
@@ -75,6 +77,16 @@ public class JaLiBooksFragment<fragment_ja_li_books> extends Fragment {
         CardView cardView1 = myView.findViewById(R.id.CardViewLivro1);
         // onClickListener para quando selecionar um CardView
 
+        cardView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), activity_serie_details.class);
+                startActivity(intent);
+            }
+        });
+
         return myView;
     }
+
+
 }
