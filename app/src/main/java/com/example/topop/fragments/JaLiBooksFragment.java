@@ -80,7 +80,7 @@ public class JaLiBooksFragment<fragment_ja_li_books> extends Fragment {
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), activity_serie_details.class);
+                Intent intent = new Intent(view.getContext(), activity_book_details.class);
                 startActivity(intent);
             }
         });

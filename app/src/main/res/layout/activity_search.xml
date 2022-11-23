@@ -14,101 +14,119 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
+        app:menu="@menu/bottom_navigation_menu" >
 
-    <EditText
-        android:id="@+id/txtSearch"
-        android:layout_width="250dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="72dp"
-        android:background="#4DCDD0D8"
-        android:drawablePadding="10dp"
-        android:hint="Pesquisa"
-        android:paddingLeft="10dp"
-        android:selectAllOnFocus="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="33dp"
-        android:layout_marginEnd="44dp"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
-        app:layout_constraintStart_toEndOf="@+id/txtSearch"
-        app:srcCompat="@drawable/ic_search_grey"
-        tools:layout_editor_absoluteY="72dp" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView"
-        android:layout_width="330dp"
-
-        android:layout_height="60dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#000000"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSearch"
-        app:strokeColor="@color/black"
-        app:strokeWidth="2dp">
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/TabLayoutSearch"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:backgroundTint="#000000"
-            app:layout_constraintTop_toBottomOf="@+id/txtSearch"
-            app:tabBackground="@drawable/tab_bg_selector"
-            app:tabIconTint="@drawable/tab_icon_selector"
-            app:tabIndicatorColor="#FFFFFF"
-            app:tabTextColor="#FFFFFF">
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tablBook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:icon="@drawable/ic_book" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tablMovie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/ic_movie"
-                tools:layout_editor_absoluteX="208dp"
-                tools:layout_editor_absoluteY="123dp" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tablSerie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/ic_serie"
-                tools:layout_editor_absoluteX="208dp"
-                tools:layout_editor_absoluteY="123dp" />
-
-        </com.google.android.material.tabs.TabLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <FrameLayout
-        android:id="@+id/frameConteudoBooks"
-        android:layout_width="0dp"
-        android:layout_height="478dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="10dp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+        app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Encontre Milhares de Títulos"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtSearch"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="10dp"
+                android:background="#4DCDD0D8"
+                android:drawablePadding="10dp"
+                android:hint="Pesquisa"
+                android:paddingLeft="10dp"
+                android:selectAllOnFocus="true" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:backgroundTint="#FFFFFF"
+                app:srcCompat="@drawable/ic_search_grey" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="330dp"
+
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#000000"
+            app:cardCornerRadius="30dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/TabLayoutSearch"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="#000000"
+                app:layout_constraintTop_toBottomOf="@+id/txtSearch"
+                app:tabBackground="@drawable/tab_bg_selector"
+                app:tabIconTint="@drawable/tab_icon_selector"
+                app:tabIndicatorColor="#FFFFFF"
+                app:tabTextColor="#FFFFFF">
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tablBook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:icon="@drawable/ic_book" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tablMovie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/ic_movie"
+                    tools:layout_editor_absoluteX="208dp"
+                    tools:layout_editor_absoluteY="123dp" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tablSerie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:icon="@drawable/ic_serie"
+                    tools:layout_editor_absoluteX="208dp"
+                    tools:layout_editor_absoluteY="123dp" />
+
+            </com.google.android.material.tabs.TabLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <FrameLayout
+            android:id="@+id/frameConteudoBooks"
+            android:layout_width="410dp"
+            android:layout_height="440dp"
+            android:layout_marginTop="20dp">
+
+        </FrameLayout>
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

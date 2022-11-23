@@ -22,11 +22,11 @@
 
             <ImageView
                 android:id="@+id/voltarRegistrar"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="left"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="40dp"
                 app:srcCompat="@drawable/ic_baseline_arrow" />
 
             <TextView
@@ -34,8 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
                 android:fontFamily="sans-serif-light"
                 android:text="Registrar"
@@ -46,7 +46,7 @@
 
             <EditText
                 android:id="@+id/txtUsenamer"
-                android:layout_width="331dp"
+                android:layout_width="300dp"
                 android:layout_height="56dp"
                 android:background="#4DE8ECF4"
                 android:backgroundTint="#9A9B9F"
@@ -58,7 +58,7 @@
 
             <EditText
                 android:id="@+id/txtEmail"
-                android:layout_width="331dp"
+                android:layout_width="300dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="15dp"
                 android:background="#4DE8ECF4"
@@ -74,7 +74,7 @@
 
             <EditText
                 android:id="@+id/txtPassword"
-                android:layout_width="331dp"
+                android:layout_width="300dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="15dp"
                 android:background="#4DE8ECF4"
@@ -88,7 +88,7 @@
 
             <EditText
                 android:id="@+id/txtConfirmPassword"
-                android:layout_width="331dp"
+                android:layout_width="300dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="15dp"
                 android:background="#4DE8ECF4"
@@ -102,7 +102,7 @@
 
             <Button
                 android:id="@+id/btnTelaRegistrar"
-                android:layout_width="331dp"
+                android:layout_width="300dp"
                 android:layout_height="56dp"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="#000000"

@@ -19,8 +19,8 @@
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <ScrollView
-        android:layout_width="406dp"
-        android:layout_height="669dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
 
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="left"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="38dp"
                 app:srcCompat="@drawable/ic_baseline_arrow" />
 
