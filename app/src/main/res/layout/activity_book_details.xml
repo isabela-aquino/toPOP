@@ -34,7 +34,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/voltar"
+                android:id="@+id/voltarBookDetails"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="left"

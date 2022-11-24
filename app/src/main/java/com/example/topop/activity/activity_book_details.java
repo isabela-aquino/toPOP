@@ -4,18 +4,34 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.topop.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class activity_book_details extends AppCompatActivity {
 
+    private ImageView btnVoltarBookDetails;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
+
+        btnVoltarBookDetails = (ImageView) findViewById(R.id.voltarBookDetails);
+
+        btnVoltarBookDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity_book_details.this, activity_list_books.class);
+                startActivity(intent);
+            }
+        });
 
         // Initialize and assign variable
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavigation);

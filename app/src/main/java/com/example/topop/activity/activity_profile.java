@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.topop.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -15,6 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class activity_profile extends AppCompatActivity {
 
     public Button btnListBook, btnListMovie, btnListSerie;
+    public ImageView imageViewLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class activity_profile extends AppCompatActivity {
         btnListBook = (Button) findViewById(R.id.btnListBooks);
         btnListMovie = (Button) findViewById(R.id.btnListMovies);
         btnListSerie = (Button) findViewById(R.id.btnListSeries);
+        imageViewLogout = (ImageView) findViewById(R.id.logOut);
 
         btnListBook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +46,14 @@ public class activity_profile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 abrirListSeries();
+            }
+        });
+
+        imageViewLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity_profile.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

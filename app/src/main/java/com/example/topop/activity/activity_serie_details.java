@@ -6,16 +6,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.topop.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class activity_serie_details extends AppCompatActivity {
 
+    private ImageView btnVoltarSerieDetails;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serie_details);
+
+        btnVoltarSerieDetails = (ImageView) findViewById(R.id.voltarSerieDetails);
+
+        btnVoltarSerieDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity_serie_details.this, activity_list_serie.class);
+                startActivity(intent);
+            }
+        });
 
         // Initialize and assign variable
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavigation);
