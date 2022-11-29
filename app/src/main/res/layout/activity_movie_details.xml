@@ -47,7 +47,7 @@
                 app:srcCompat="@mipmap/ic_movie_foreground" />
 
             <TextView
-                android:id="@+id/tituloMovie"
+                android:id="@+id/titleMovie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Orgulho e Preconceito"
@@ -64,7 +64,7 @@
                 android:textColor="#06070D" />
 
             <TextView
-                android:id="@+id/sinopseMovie"
+                android:id="@+id/descriptionMovie"
                 android:layout_width="312dp"
                 android:layout_height="86dp"
                 android:layout_marginTop="10dp"

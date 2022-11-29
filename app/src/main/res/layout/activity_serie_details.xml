@@ -36,7 +36,7 @@
                 app:srcCompat="@mipmap/ic_serie_foreground" />
 
             <TextView
-                android:id="@+id/tituloSerie"
+                android:id="@+id/titleSerie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Friends"
@@ -45,7 +45,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/qtdTemporada"
+                android:id="@+id/numberSeason"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -53,7 +53,7 @@
                 android:textColor="#06070D" />
 
             <TextView
-                android:id="@+id/sinopseSerie"
+                android:id="@+id/descriptionSerie"
                 android:layout_width="312dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"

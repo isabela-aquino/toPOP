@@ -23,7 +23,7 @@
                 android:paddingStart="30dp">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/IVImage"
                     android:layout_width="50dp"
                     android:layout_height="150dp"
                     android:layout_weight="1"
@@ -38,7 +38,7 @@
                     android:paddingStart="10dp">
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/TVTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Orgulho e Preconceito"
@@ -47,7 +47,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/TVAuthor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Jane Austen"
