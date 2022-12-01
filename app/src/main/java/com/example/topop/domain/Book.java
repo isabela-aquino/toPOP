@@ -15,12 +15,10 @@ public class Book {
         this.description = description;
     }
 
-    public Book(Long id, String title, ArrayList<String> authors, String description, String thumbnail) {
-        this.id = id;
+    public Book(String title, ArrayList<String> authors, String description) {
         this.title = title;
         this.authors = authors;
         this.description = description;
-        this.thumbnail = thumbnail;
     }
 
     public Long getId() {

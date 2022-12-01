@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.topop.R;
+import com.example.topop.activity.activity_search;
+
+import java.util.logging.Logger;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +24,8 @@ public class SearchBookFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final Logger LOGGER = Logger.getLogger( SearchBookFragment.class.getName() );
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -54,6 +59,8 @@ public class SearchBookFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            LOGGER.info("Creating SearchBookFragment with args=" + mParam1 + "and" + mParam2);
+
         }
     }
 

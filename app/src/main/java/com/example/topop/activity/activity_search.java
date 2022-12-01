@@ -12,7 +12,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -35,8 +39,10 @@ import com.google.android.material.tabs.TabLayout;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class activity_search extends AppCompatActivity {
 
@@ -47,6 +53,10 @@ public class activity_search extends AppCompatActivity {
     private SearchBookFragment searchBookFragment;
     private SearchMovieFragment searchMovieFragment;
     private SearchSerieFragment searchSerieFragment;
+    private Fragment fragment;
+    private EditText txtSearch;
+    private ImageButton btnSearch;
+    private static final Logger LOGGER = Logger.getLogger( activity_search.class.getName() );
 
 
     @Override
@@ -58,8 +68,12 @@ public class activity_search extends AppCompatActivity {
 
         searchBookFragment = new SearchBookFragment();
 
+        txtSearch = findViewById(R.id.txtSearch);
+        btnSearch = findViewById(R.id.imageButton);
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.frameConteudoBooks, searchBookFragment);
+        fragment = searchBookFragment;
         transaction.commit();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -67,20 +81,23 @@ public class activity_search extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()) {
                     case 0:
+                        LOGGER.info("clicked to search books");
                         searchBookFragment = new SearchBookFragment();
-
+                        fragment = searchBookFragment;
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.frameConteudoBooks, searchBookFragment);
                         transaction.commit();
                         break;
                     case 1:
                         searchMovieFragment = new SearchMovieFragment();
+                        fragment = searchMovieFragment;
                         transaction = getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.frameConteudoBooks, searchMovieFragment);
                         transaction.commit();
                         break;
                     case 2:
                         searchSerieFragment = new SearchSerieFragment();
+                        fragment = searchSerieFragment;
                         transaction = getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.frameConteudoBooks, searchSerieFragment);
                         transaction.commit();
@@ -96,6 +113,21 @@ public class activity_search extends AppCompatActivity {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // checking if our edittext field is empty or not.
+                if (txtSearch.getText().toString().isEmpty()) {
+                    txtSearch.setError("Please enter search query");
+                    return;
+                }
+                if (fragment.getClass() == searchBookFragment.getClass()) {
+                    getBooksInfo(txtSearch.getText().toString());
+                }
 
             }
         });
@@ -162,45 +194,44 @@ public class activity_search extends AppCompatActivity {
                         JSONObject itemsObj = itemsArray.getJSONObject(i);
                         JSONObject volumeObj = itemsObj.getJSONObject("volumeInfo");
                         String title = volumeObj.getString("title");
-                        //JSONArray authorsArray = volumeObj.getJSONArray("authors");
-                        String description = volumeObj.getString("description");
+                        JSONArray authorsArray = volumeObj.getJSONArray("authors");
+                       // String description = volumeObj.getString("description");
+                        String description = volumeObj.getString("title");
                         //JSONObject imageLinks = volumeObj.getJSONObject("imageLinks");
-                        // String thumbnail = imageLinks.getString("thumbnail");
-                       /* ArrayList<String> authorsArrayList = new ArrayList<>();
+                        //String thumbnail = imageLinks.getString("thumbnail");
+                       ArrayList<String> authorsArrayList = new ArrayList<>();
                         if (authorsArray.length() != 0) {
                             for (int j = 0; j < authorsArray.length(); j++) {
                                 authorsArrayList.add(authorsArray.optString(i));
                             }
-                        }*/
+                        }
 
 
 
                         // after extracting all the data we are
                         // saving this data in our modal class.
-                        Book bookInfo = new Book(title, description);
+                        Book bookInfo = new Book(title, authorsArrayList, description);
 
                         // below line is use to pass our modal
                         // class in our array list.
                         bookInfoArrayList.add(bookInfo);
+                        LOGGER.info(bookInfoArrayList.toString());
 
                         // below line is use to pass our
                         // array list in adapter class.
                         BookAdapter adapter = new BookAdapter(bookInfoArrayList, activity_search.this);
 
-                        // below line is use to add linear layout
-                        // manager for our recycler view.
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity_search.this, RecyclerView.VERTICAL, false);
-                        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frameConteudoBooks);
+                        // below line is use to write info on fragment
+                        TextView tvTitle = findViewById(R.id.TVTitle);
+                        tvTitle.setText(bookInfo.getTitle());
 
-                        // in below line we are setting layout manager and
-                        // adapter to our recycler view.
-                        frameLayout.setLayoutManager(linearLayoutManager);
-                        frameLayout.setAdapter(adapter);
+                        TextView tvAuthor = findViewById(R.id.TVAuthor);
+                        tvAuthor.setText(bookInfo.getAuthors().toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                     // displaying a toast message when we get any error from API
-                    Toast.makeText(activity_search.this, "No Data Found" + e, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity_search.this, "No Data Found " + e, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
