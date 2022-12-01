@@ -34,7 +34,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     @Override
     public BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflating our layout for item of recycler view item.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_book_details, parent, false);
+        View view = LayoutInflater.from(mcontext).inflate(R.layout.fragment_searchbook, parent, false);
         return new BookViewHolder(view);
     }
 
@@ -45,7 +45,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         // setting ou data to each UI component.
         Book Book = BookArrayList.get(position);
         holder.nameTV.setText(Book.getTitle());
-        holder.descriptionTV.setText(Book.getDescription());
+        //holder.descriptionTV.setText(Book.getDescription());
+        holder.authorTV.setText(Book.getAuthors().toString());
+        //holder.bookIV.setImageBitmap(Book.getThumbnail());
 
 
         // below line is use to set image from URL in our image view.
@@ -58,7 +60,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
                 Intent i = new Intent(mcontext, BookDetails.class);
                 i.putExtra("title", Book.getTitle());
-                //i.putExtra("authors", Book.getAuthors());
+                i.putExtra("authors", Book.getAuthors());
                 i.putExtra("description", Book.getDescription());
                 //i.putExtra("thumbnail", Book.getThumbnail());
 
@@ -77,14 +79,15 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public class BookViewHolder extends RecyclerView.ViewHolder {
         // below line is use to initialize
         // our text view and image views.
-        TextView nameTV, descriptionTV;
-        ImageView bookIV;
+        TextView nameTV, authorTV;
+        //ImageView bookIV;
 
         public BookViewHolder(View itemView) {
             super(itemView);
-            nameTV = itemView.findViewById(R.id.titleBook);
-            bookIV = itemView.findViewById(R.id.titleBook);
-            descriptionTV = itemView.findViewById(R.id.descriptionBook);
+            nameTV = itemView.findViewById(R.id.TVTitle);
+            //bookIV = itemView.findViewById(R.id.IVImage);
+            authorTV = itemView.findViewById(R.id.TVAuthor);
+            //descriptionTV = itemView.findViewById(R.id.descriptionBook);
         }
     }
 }

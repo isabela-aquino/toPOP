@@ -29,6 +29,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.topop.R;
 import com.example.topop.adapters.BookAdapter;
 import com.example.topop.domain.Book;
+import com.example.topop.fragments.BooksRecyclerView;
 import com.example.topop.fragments.SearchBookFragment;
 import com.example.topop.fragments.SearchMovieFragment;
 import com.example.topop.fragments.SearchSerieFragment;
@@ -53,6 +54,7 @@ public class activity_search extends AppCompatActivity {
     private SearchBookFragment searchBookFragment;
     private SearchMovieFragment searchMovieFragment;
     private SearchSerieFragment searchSerieFragment;
+    private BooksRecyclerView booksRecyclerView;
     private Fragment fragment;
     private EditText txtSearch;
     private ImageButton btnSearch;
@@ -67,13 +69,14 @@ public class activity_search extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.TabLayoutSearch);
 
         searchBookFragment = new SearchBookFragment();
+        booksRecyclerView = new BooksRecyclerView();
 
         txtSearch = findViewById(R.id.txtSearch);
         btnSearch = findViewById(R.id.imageButton);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frameConteudoBooks, searchBookFragment);
-        fragment = searchBookFragment;
+        transaction.add(R.id.frameConteudoBooks, booksRecyclerView);
+        fragment = booksRecyclerView;
         transaction.commit();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -82,10 +85,10 @@ public class activity_search extends AppCompatActivity {
                 switch (tab.getPosition()) {
                     case 0:
                         LOGGER.info("clicked to search books");
-                        searchBookFragment = new SearchBookFragment();
-                        fragment = searchBookFragment;
+                        booksRecyclerView = new BooksRecyclerView();
+                        fragment = booksRecyclerView;
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBooks, searchBookFragment);
+                        transaction.replace(R.id.frameConteudoBooks, booksRecyclerView);
                         transaction.commit();
                         break;
                     case 1:
@@ -125,7 +128,7 @@ public class activity_search extends AppCompatActivity {
                     txtSearch.setError("Please enter search query");
                     return;
                 }
-                if (fragment.getClass() == searchBookFragment.getClass()) {
+                if (fragment.getClass() == booksRecyclerView.getClass()) {
                     getBooksInfo(txtSearch.getText().toString());
                 }
 
@@ -206,8 +209,6 @@ public class activity_search extends AppCompatActivity {
                             }
                         }
 
-
-
                         // after extracting all the data we are
                         // saving this data in our modal class.
                         Book bookInfo = new Book(title, authorsArrayList, description);
@@ -221,12 +222,15 @@ public class activity_search extends AppCompatActivity {
                         // array list in adapter class.
                         BookAdapter adapter = new BookAdapter(bookInfoArrayList, activity_search.this);
 
-                        // below line is use to write info on fragment
-                        TextView tvTitle = findViewById(R.id.TVTitle);
-                        tvTitle.setText(bookInfo.getTitle());
+                        // below line is use to add linear layout
+                        // manager for our recycler view.
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity_search.this, RecyclerView.VERTICAL, false);
+                        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.rvBooks);
 
-                        TextView tvAuthor = findViewById(R.id.TVAuthor);
-                        tvAuthor.setText(bookInfo.getAuthors().toString());
+                        // in below line we are setting layout manager and
+                        // adapter to our recycler view.
+                        mRecyclerView.setLayoutManager(linearLayoutManager);
+                        mRecyclerView.setAdapter(adapter);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
