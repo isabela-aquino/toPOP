@@ -10,13 +10,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.topop.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class activity_book_details extends AppCompatActivity {
 
     private ImageView btnVoltarBookDetails;
+
+    String title, description, thumbnail;
+    private ArrayList<String> authors;
+
+
+    TextView titleTV, descTV, authorTV;
+
+    ImageView bookIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,5 +70,22 @@ public class activity_book_details extends AppCompatActivity {
                 return false;
             }
         });
+
+        // initializing our views..
+        titleTV = findViewById(R.id.titleBook);
+        descTV = findViewById(R.id.descriptionBook);
+        //authorTV = findViewById(R.id.autoraLivro);
+
+
+        title = getIntent().getStringExtra("title");
+        description = getIntent().getStringExtra("description");
+        //authors = getIntent().getStringArrayListExtra("authors");
+        //thumbnail = getIntent().getStringExtra("thumbnail");
+
+
+        titleTV.setText(title);
+        descTV.setText(description);
+        //authorTV.setText((CharSequence) authors);
+        //Picasso.get().load(thumbnail).into(bookIV);
     }
 }

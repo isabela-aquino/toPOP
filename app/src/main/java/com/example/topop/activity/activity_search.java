@@ -74,7 +74,7 @@ public class activity_search extends AppCompatActivity {
         txtSearch = findViewById(R.id.txtSearch);
         btnSearch = findViewById(R.id.imageButton);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        /*FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.frameConteudoBooks, booksRecyclerView);
         fragment = booksRecyclerView;
         transaction.commit();
@@ -118,7 +118,7 @@ public class activity_search extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-        });
+        });*/
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override

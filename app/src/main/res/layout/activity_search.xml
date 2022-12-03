@@ -118,11 +118,10 @@
             </com.google.android.material.tabs.TabLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <FrameLayout
-            android:id="@+id/frameConteudoBooks"
-            android:layout_width="410dp"
-            android:layout_height="440dp"
-            android:layout_marginTop="20dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
 
