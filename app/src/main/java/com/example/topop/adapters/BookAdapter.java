@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.topop.R;
+import com.example.topop.activity.activity_book_details;
 import com.example.topop.domain.Book;
-import com.example.topop.domain.BookDetails;
 
 import java.util.ArrayList;
 
@@ -58,7 +58,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(mcontext, BookDetails.class);
+                Intent i = new Intent(mcontext, activity_book_details.class);
                 i.putExtra("title", Book.getTitle());
                 i.putExtra("authors", Book.getAuthors());
                 i.putExtra("description", Book.getDescription());
