@@ -43,30 +43,30 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
         // inside on bind view holder method we are
         // setting ou data to each UI component.
-        Book Book = BookArrayList.get(position);
-        holder.nameTV.setText(Book.getTitle());
-        //holder.descriptionTV.setText(Book.getDescription());
-        holder.authorTV.setText(Book.getAuthors().toString());
-        //holder.bookIV.setImageBitmap(Book.getThumbnail());
+        Book book = BookArrayList.get(position);
+        holder.nameTV.setText(book.getTitle());
+        //holder.descriptionTV.setText(book.getDescription());
+        holder.authorTV.setText(book.getAuthors().toString());
+        //holder.bookIV.setImageBitmap(book.getThumbnail());
 
 
         // below line is use to set image from URL in our image view.
-        //Picasso.get().load(Book.getThumbnail()).into(holder.bookIV);
+        //Picasso.get().load(book.getThumbnail()).into(holder.bookIV);
 
         // below line is use to add on click listener for our item of recycler view.
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(mcontext, activity_book_details.class);
-                i.putExtra("title", Book.getTitle());
-                i.putExtra("authors", Book.getAuthors());
-                i.putExtra("description", Book.getDescription());
-                //i.putExtra("thumbnail", Book.getThumbnail());
-
-                mcontext.startActivity(i);
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Intent i = new Intent(mcontext, activity_book_details.class);
+//                i.putExtra("title", book.getTitle());
+//                i.putExtra("authors", book.getAuthors());
+//                i.putExtra("description", book.getDescription());
+//                //i.putExtra("thumbnail", book.getThumbnail());
+//
+//                mcontext.startActivity(i);
+//            }
+//        });
     }
 
     @Override
@@ -76,17 +76,17 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         return BookArrayList.size();
     }
 
-    public class BookViewHolder extends RecyclerView.ViewHolder {
+    public static class BookViewHolder extends RecyclerView.ViewHolder {
         // below line is use to initialize
         // our text view and image views.
         TextView nameTV, authorTV;
         //ImageView bookIV;
 
-        public BookViewHolder(View itemView) {
+        public BookViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTV = itemView.findViewById(R.id.idTVBookTitle);
+            nameTV = itemView.findViewById(R.id.TVTitle);
             //bookIV = itemView.findViewById(R.id.IVImage);
-            authorTV = itemView.findViewById(R.id.idTVpublisher);
+            authorTV = itemView.findViewById(R.id.TVAuthor);
             //descriptionTV = itemView.findViewById(R.id.descriptionBook);
         }
     }

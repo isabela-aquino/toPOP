@@ -7,16 +7,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.MediaRouteButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -34,30 +30,26 @@ import com.example.topop.fragments.SearchBookFragment;
 import com.example.topop.fragments.SearchMovieFragment;
 import com.example.topop.fragments.SearchSerieFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class activity_search extends AppCompatActivity {
 
+    private RecyclerView recyclerView;
+    private BookAdapter adapter;
+    private ArrayList<Book> books;
 
-
-    private TabLayout tabLayout;
-
-    private SearchBookFragment searchBookFragment;
     private SearchMovieFragment searchMovieFragment;
-    private SearchSerieFragment searchSerieFragment;
     private BooksRecyclerView booksRecyclerView;
+    private SearchSerieFragment searchSerieFragment;
     private Fragment fragment;
     private EditText txtSearch;
-    private ImageButton btnSearch;
     private static final Logger LOGGER = Logger.getLogger( activity_search.class.getName() );
 
 
@@ -65,17 +57,18 @@ public class activity_search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        recyclerView = findViewById(R.id.frameConteudoBuscaRV);
 
-        tabLayout = (TabLayout) findViewById(R.id.TabLayoutSearch);
 
-        searchBookFragment = new SearchBookFragment();
-        booksRecyclerView = new BooksRecyclerView();
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.TabLayoutSearch);
+
 
         txtSearch = findViewById(R.id.txtSearch);
-        btnSearch = findViewById(R.id.imageButton);
+        ImageButton btnSearch = findViewById(R.id.imageButton);
 
-        /*FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.frameConteudoBooks, booksRecyclerView);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        booksRecyclerView = new BooksRecyclerView();
+        transaction.add(R.id.frameConteudoBuscaRV, booksRecyclerView);
         fragment = booksRecyclerView;
         transaction.commit();
 
@@ -85,24 +78,31 @@ public class activity_search extends AppCompatActivity {
                 switch (tab.getPosition()) {
                     case 0:
                         LOGGER.info("clicked to search books");
+                        books = getBooksInfo(txtSearch.getText().toString());
+                        adapter = new BookAdapter(books, activity_search.this);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(activity_search.this,
+                                LinearLayoutManager.VERTICAL, false);
+                        recyclerView.setLayoutManager(layoutManager);
+                        recyclerView.setAdapter(adapter);
+                        //=========================================
                         booksRecyclerView = new BooksRecyclerView();
                         fragment = booksRecyclerView;
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBooks, booksRecyclerView);
+                        transaction.replace(R.id.frameConteudoBuscaRV, booksRecyclerView);
                         transaction.commit();
                         break;
                     case 1:
                         searchMovieFragment = new SearchMovieFragment();
                         fragment = searchMovieFragment;
                         transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBooks, searchMovieFragment);
+                        transaction.replace(R.id.frameConteudoBuscaRV, searchMovieFragment);
                         transaction.commit();
                         break;
                     case 2:
                         searchSerieFragment = new SearchSerieFragment();
                         fragment = searchSerieFragment;
                         transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBooks, searchSerieFragment);
+                        transaction.replace(R.id.frameConteudoBuscaRV, searchSerieFragment);
                         transaction.commit();
                         break;
 
@@ -118,7 +118,7 @@ public class activity_search extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-        });*/
+        });
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,7 +165,7 @@ public class activity_search extends AppCompatActivity {
 
     }
 
-    private void getBooksInfo(String query) {
+    private ArrayList<Book> getBooksInfo(String query) {
 
         // creating a new array list.
         ArrayList<Book> bookInfoArrayList = new ArrayList<>();
@@ -217,20 +217,6 @@ public class activity_search extends AppCompatActivity {
                         // class in our array list.
                         bookInfoArrayList.add(bookInfo);
                         LOGGER.info(bookInfoArrayList.toString());
-
-                        // below line is use to pass our
-                        // array list in adapter class.
-                        BookAdapter adapter = new BookAdapter(bookInfoArrayList, activity_search.this);
-
-                        // below line is use to add linear layout
-                        // manager for our recycler view.
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity_search.this, RecyclerView.VERTICAL, false);
-                        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.rvBooks);
-
-                        // in below line we are setting layout manager and
-                        // adapter to our recycler view.
-                        mRecyclerView.setLayoutManager(linearLayoutManager);
-                        mRecyclerView.setAdapter(adapter);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -248,5 +234,6 @@ public class activity_search extends AppCompatActivity {
         // at last we are adding our json object
         // request in our request queue.
         queue.add(booksObjrequest);
+        return bookInfoArrayList;
     }
 }
