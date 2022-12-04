@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * Use the {@link SearchBookFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchBookFragment extends Fragment {
+public class BooksRecyclerView extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +31,7 @@ public class SearchBookFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SearchBookFragment() {
+    public BooksRecyclerView() {
         // Required empty public constructor
     }
 
@@ -44,8 +44,8 @@ public class SearchBookFragment extends Fragment {
      * @return A new instance of fragment fragment_searchbook.
      */
     // TODO: Rename and change types and number of parameters
-    public static SearchBookFragment newInstance(String param1, String param2) {
-        SearchBookFragment fragment = new SearchBookFragment();
+    public static BooksRecyclerView newInstance(String param1, String param2) {
+        BooksRecyclerView fragment = new BooksRecyclerView();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,7 +59,7 @@ public class SearchBookFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            LOGGER.info("Creating SearchBookFragment with args=" + mParam1 + "and" + mParam2);
+            LOGGER.info("Creating BooksRecyclerView with args=" + mParam1 + "and" + mParam2);
 
         }
     }
@@ -68,6 +68,6 @@ public class SearchBookFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_searchbook, container, false);
+        return inflater.inflate(R.layout.recycler_view_books, container, false);
     }
 }

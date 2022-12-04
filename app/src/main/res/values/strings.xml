@@ -9,5 +9,8 @@
     <string name="menu_profile">Perfil</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bookTitle" />
+    <string name="book_title">Orgulho e Preconceito</string>
+    <string name="book_author">Jane Austen</string>
 
 </resources>

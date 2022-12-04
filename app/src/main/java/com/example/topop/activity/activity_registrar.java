@@ -1,10 +1,12 @@
 package com.example.topop.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +14,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.topop.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class activity_registrar extends AppCompatActivity {
 
@@ -20,7 +36,8 @@ public class activity_registrar extends AppCompatActivity {
     public ImageView imageViewVoltarRegistrar;
     private EditText edit_nome, edit_email, edit_senha, edit_confirmasenha;
     private Button btn_TelaRegistrar;
-    String[] mensagens = {"Preencha todos os campos", "login ok", "Senhas incompatíveis"};
+    String[] mensagens = {"Preencha todos os campos", "Cadastro realizado", "Senhas incompatíveis"};
+    String usuarioId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,23 +77,81 @@ public class activity_registrar extends AppCompatActivity {
                     snackbar.setTextColor(Color.WHITE);
                     snackbar.show();
 
-                } else if (senha!=ConfirmaSenha){
+                } else if (!senha.equals(ConfirmaSenha)){
                     Snackbar snackbar = Snackbar.make(view, mensagens[2], Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.BLACK);
                     snackbar.setTextColor(Color.WHITE);
                     snackbar.show();
-                } else CadastrarUsuario();
+                } else CadastrarUsuario(view);
             }
         });
     }
-    private void CadastrarUsuario(){
-        String nome = edit_nome.getText().toString();
+    private void CadastrarUsuario(View view){
         String email = edit_email.getText().toString();
         String senha = edit_senha.getText().toString();
-        String ConfirmaSenha = edit_confirmasenha.getText().toString();
+
+
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+
+                    SalvarDados();
+
+                    Snackbar snackbar = Snackbar.make(view, mensagens[1], Snackbar.LENGTH_SHORT);
+                    snackbar.setBackgroundTint(Color.BLACK);
+                    snackbar.setTextColor(Color.WHITE);
+                    snackbar.show();
+                } else {
+                    String erro;
+                    try {
+                        throw task.getException();
+                    } catch (FirebaseAuthWeakPasswordException e) {
+                        erro = "Digite uma senha com no mínimo 6 caracteres";
+                    } catch (FirebaseAuthUserCollisionException e) {
+                        erro = "Essa conta já está cadastrada";
+                    }catch (FirebaseAuthInvalidCredentialsException e){
+                        erro = "Email inválido";
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        erro = "Erro ao cadastrar o usuário";
+                    }
+                    Snackbar snackbar = Snackbar.make(view, erro, Snackbar.LENGTH_SHORT);
+                    snackbar.setBackgroundTint(Color.BLACK);
+                    snackbar.setTextColor(Color.WHITE);
+                    snackbar.show();
+                }
+            }
+        });
 
     }
 
+    private void SalvarDados(){
+        String nome = edit_nome.getText().toString();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        Map<String,Object> usuários = new HashMap<>();
+        usuários.put("Nome", nome);
+
+        usuarioId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        DocumentReference documentReference = db.collection("Usuários").document(usuarioId);
+        documentReference.set(usuários).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("db", "Sucesso ao salvar os dados");
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("db_error", "erro ao salvar os dados" + e.toString());
+
+                    }
+                });
+
+
+    }
     private void IniciarComponentes(){
         edit_nome = findViewById(R.id.txtUsenamer);
         edit_email = findViewById(R.id.txtEmail);
