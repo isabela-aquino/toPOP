@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 import com.example.topop.R;
@@ -19,10 +20,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class activity_pagina_inicial extends AppCompatActivity {
 
+    private TextView nomeUsuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_inicial);
+        iniciarComponentes();
 
         // Initialize and assign variable
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavigation);
@@ -52,6 +56,10 @@ public class activity_pagina_inicial extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void iniciarComponentes() {
+        nomeUsuario = findViewById(R.id.txtBoasVindas);
     }
 
 

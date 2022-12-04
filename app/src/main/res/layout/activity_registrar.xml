@@ -51,6 +51,7 @@
                 android:background="#4DE8ECF4"
                 android:backgroundTint="#9A9B9F"
 
+                android:cursorVisible="true"
                 android:hint="@string/prompt_username"
                 android:inputType="textPersonName|text"
                 android:paddingLeft="10dp"
@@ -63,12 +64,12 @@
                 android:layout_marginTop="15dp"
                 android:background="#4DE8ECF4"
                 android:backgroundTint="#9A9B9F"
-                android:backgroundTintMode="src_in"
-                android:focusable="true"
 
+                android:cursorVisible="true"
                 android:hint="@string/prompt_email"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
+                android:selectAllOnFocus="true"
                 android:shadowColor="#000000" />
 
             <EditText
@@ -78,11 +79,13 @@
                 android:layout_marginTop="15dp"
                 android:background="#4DE8ECF4"
                 android:backgroundTint="#9A9B9F"
-                android:backgroundTintMode="src_in"
-                android:focusable="true"
+
+                android:cursorVisible="true"
                 android:hint="@string/prompt_password"
                 android:inputType="textPassword"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:selectAllOnFocus="true"
+                android:shadowColor="#000000"/>
 
             <EditText
                 android:id="@+id/txtConfirmPassword"
@@ -91,11 +94,13 @@
                 android:layout_marginTop="15dp"
                 android:background="#4DE8ECF4"
                 android:backgroundTint="#9A9B9F"
-                android:backgroundTintMode="src_in"
-                android:focusable="true"
+
+                android:cursorVisible="true"
                 android:hint="@string/prompt_confirm_password"
                 android:inputType="textPassword"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:selectAllOnFocus="true"
+                android:shadowColor="#000000"/>
 
             <Button
                 android:id="@+id/btnTelaRegistrar"

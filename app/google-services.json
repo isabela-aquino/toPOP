@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "989836189421",
+    "project_id": "topop-9caab",
+    "storage_bucket": "topop-9caab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989836189421:android:56d3aa075c91cde783b6e4",
+        "android_client_info": {
+          "package_name": "com.example.topop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989836189421-3vm951jm9jqanr2sm24g15tgp6arhcsj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsGA8tyeESm5ZJ2cGCJfnnaqnzrsvOKOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989836189421-3vm951jm9jqanr2sm24g15tgp6arhcsj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
