@@ -64,11 +64,10 @@
                 android:background="#4DE8ECF4"
                 android:backgroundTint="#9A9B9F"
                 android:backgroundTintMode="src_in"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
+                android:focusable="true"
+
                 android:hint="@string/prompt_email"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:paddingLeft="10dp"
                 android:shadowColor="#000000" />
 
@@ -80,10 +79,9 @@
                 android:background="#4DE8ECF4"
                 android:backgroundTint="#9A9B9F"
                 android:backgroundTintMode="src_in"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
+                android:focusable="true"
                 android:hint="@string/prompt_password"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:paddingLeft="10dp" />
 
             <EditText
@@ -94,10 +92,9 @@
                 android:background="#4DE8ECF4"
                 android:backgroundTint="#9A9B9F"
                 android:backgroundTintMode="src_in"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
+                android:focusable="true"
                 android:hint="@string/prompt_confirm_password"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:paddingLeft="10dp" />
 
             <Button
