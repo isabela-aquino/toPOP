@@ -17,10 +17,10 @@ import com.example.topop.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class activity_book_details extends AppCompatActivity {
-
-    private ImageView btnVoltarBookDetails;
 
     String title, description, thumbnail;
     private ArrayList<String> authors;
@@ -38,22 +38,23 @@ public class activity_book_details extends AppCompatActivity {
         // initializing our views..
         titleTV = findViewById(R.id.titleBook);
         descTV = findViewById(R.id.descriptionBook);
-        //authorTV = findViewById(R.id.autoraLivro);
+        authorTV = findViewById(R.id.authorBook);
         bookIV = findViewById(R.id.imageBook);
 
 
         title = getIntent().getStringExtra("title");
         description = getIntent().getStringExtra("description");
-        //authors = getIntent().getStringArrayListExtra("authors");
+        authors = getIntent().getStringArrayListExtra("authors");
         thumbnail = getIntent().getStringExtra("thumbnail");
 
+        String authorsString = String.join(", ", authors);
 
         titleTV.setText(title);
         descTV.setText(description);
-        //authorTV.setText((CharSequence) authors);
+        authorTV.setText((CharSequence) authorsString);
         Picasso.get().load(thumbnail).into(bookIV);
 
-        btnVoltarBookDetails = (ImageView) findViewById(R.id.voltarBookDetails);
+        ImageView btnVoltarBookDetails = (ImageView) findViewById(R.id.voltarBookDetails);
 
         btnVoltarBookDetails.setOnClickListener(new View.OnClickListener() {
             @Override

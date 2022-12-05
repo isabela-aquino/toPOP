@@ -10,17 +10,13 @@ public class Book {
     private String description;
     private String thumbnail;
 
-    public Book(String title, String description, String thumbnail) {
+    public Book(String title, String description, ArrayList<String> authors, String thumbnail) {
         this.title = title;
         this.description = description;
+        this.authors = authors;
         this.thumbnail = thumbnail;
     }
 
-    public Book(String title, ArrayList<String> authors, String description) {
-        this.title = title;
-        this.authors = authors;
-        this.description = description;
-    }
 
     public Long getId() {
         return this.id;

@@ -30,11 +30,13 @@ import com.example.topop.fragments.SearchSerieFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
+import org.jetbrains.annotations.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 public class activity_search extends AppCompatActivity {
@@ -143,22 +145,37 @@ public class activity_search extends AppCompatActivity {
                         JSONObject itemsObj = itemsArray.getJSONObject(i);
                         JSONObject volumeObj = itemsObj.getJSONObject("volumeInfo");
                         String title = volumeObj.getString("title");
-                        //JSONArray authorsArray = volumeObj.getJSONArray("authors");
-                        String description = volumeObj.getString("description");
-                        JSONObject imageLinks = volumeObj.getJSONObject("imageLinks");
-                        String thumbnail = imageLinks.getString("thumbnail");
-                       /* ArrayList<String> authorsArrayList = new ArrayList<>();
+                        String description;
+                        String thumbnail;
+                        JSONArray authorsArray;
+                        if (volumeObj.has("authors")) {
+                            authorsArray = volumeObj.getJSONArray("authors");
+                        } else {
+                            authorsArray = new JSONArray("Autor desconhecido");
+                        }
+
+                        if (volumeObj.has("description")){
+                            description = volumeObj.getString("description");
+                        } else {
+                            description = "Sem descrição";
+                        }
+                        if (volumeObj.has("imageLinks")) {
+                            JSONObject imageLinks = volumeObj.getJSONObject("imageLinks");
+                            thumbnail = imageLinks.getString("thumbnail");
+                        } else {
+                            thumbnail = "https://amici.com.br/wp-content/uploads/sites/83/2020/04/imagem-indispon%C3%ADvel.jpg";
+                            System.out.println(thumbnail);
+                        }
+
+                       ArrayList<String> authorsArrayList = new ArrayList<>();
                         if (authorsArray.length() != 0) {
                             for (int j = 0; j < authorsArray.length(); j++) {
                                 authorsArrayList.add(authorsArray.optString(i));
                             }
-                        }*/
-
-
-
+                        }
                         // after extracting all the data we are
                         // saving this data in our modal class.
-                        Book bookInfo = new Book(title, description, thumbnail);
+                        Book bookInfo = new Book(title, description, authorsArrayList, thumbnail);
 
                         // below line is use to pass our modal
                         // class in our array list.
@@ -183,6 +200,7 @@ public class activity_search extends AppCompatActivity {
                     // displaying a toast message when we get any error from API
                     Toast.makeText(activity_search.this, "No Data Found" + e, Toast.LENGTH_SHORT).show();
                 }
+
             }
         }, new Response.ErrorListener() {
             @Override

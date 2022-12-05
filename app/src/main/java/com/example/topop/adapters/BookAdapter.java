@@ -23,8 +23,8 @@ import java.util.ArrayList;
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
 
     // creating variables for arraylist and context.
-    private ArrayList<Book> bookInfoArrayList;
-    private Context mcontext;
+    private final ArrayList<Book> bookInfoArrayList;
+    private final Context mcontext;
 
     // creating constructor for array list and context.
     public BookAdapter(ArrayList<Book> bookInfoArrayList, Context mcontext) {
@@ -60,7 +60,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 // and passing all the data of that item in next intent.
                 Intent i = new Intent(mcontext, activity_book_details.class);
                 i.putExtra("title", bookInfo.getTitle());
-                //i.putExtra("authors", bookInfo.getAuthors());
+                i.putStringArrayListExtra("authors", bookInfo.getAuthors());
                 i.putExtra("description", bookInfo.getDescription());
                 i.putExtra("thumbnail", bookInfo.getThumbnail());
 
