@@ -23,8 +23,8 @@ import java.util.ArrayList;
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
 
     // creating variables for arraylist and context.
-    private ArrayList<Book> bookInfoArrayList;
-    private Context mcontext;
+    private final ArrayList<Book> bookInfoArrayList;
+    private final Context mcontext;
 
     // creating constructor for array list and context.
     public BookAdapter(ArrayList<Book> bookInfoArrayList, Context mcontext) {
