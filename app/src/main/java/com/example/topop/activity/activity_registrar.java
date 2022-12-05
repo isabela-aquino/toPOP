@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -89,6 +90,7 @@ public class activity_registrar extends AppCompatActivity {
     private void CadastrarUsuario(View view){
         String email = edit_email.getText().toString();
         String senha = edit_senha.getText().toString();
+        String userName = edit_nome.getText().toString();
 
 
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -102,6 +104,7 @@ public class activity_registrar extends AppCompatActivity {
                     snackbar.setBackgroundTint(Color.BLACK);
                     snackbar.setTextColor(Color.WHITE);
                     snackbar.show();
+                    telaPrincipal();
                 } else {
                     String erro;
                     try {
@@ -158,6 +161,12 @@ public class activity_registrar extends AppCompatActivity {
         edit_senha = findViewById(R.id.txtPassword);
         edit_confirmasenha = findViewById(R.id.txtConfirmPassword);
         btn_TelaRegistrar = findViewById(R.id.btnTelaRegistrar);
+    }
+
+    private void telaPrincipal() {
+        Intent intent = new Intent(activity_registrar.this, activity_pagina_inicial.class);
+        startActivity(intent);
+        finish();
     }
 
 }

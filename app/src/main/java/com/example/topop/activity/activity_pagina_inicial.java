@@ -17,10 +17,13 @@ import android.widget.TextView;
 import com.example.topop.R;
 import com.example.topop.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
 
 public class activity_pagina_inicial extends AppCompatActivity {
 
-    private TextView nomeUsuario;
+    private TextView textUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +62,12 @@ public class activity_pagina_inicial extends AppCompatActivity {
     }
 
     private void iniciarComponentes() {
-        nomeUsuario = findViewById(R.id.txtBoasVindas);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        textUsuario = (TextView) findViewById(R.id.txtBoasVindas);
+        textUsuario.setText(
+                textUsuario.getText().toString() + "Hi, " + user.getDisplayName()
+        );
     }
 
 

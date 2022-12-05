@@ -29,6 +29,7 @@ public class activity_login extends AppCompatActivity {
     private EditText textEmail;
     private  EditText textPassword;
     String[] mensagens = {"Preencha todos os campos", "Login efetuado com sucesso"};
+    public String nomeUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,7 @@ public class activity_login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     telaPrincipal();
+                    nomeUsuario = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
                 } else {
                     String erro;
                     try{
@@ -108,6 +110,7 @@ public class activity_login extends AppCompatActivity {
     }
     private void telaPrincipal() {
         Intent intent = new Intent(activity_login.this, activity_pagina_inicial.class);
+        intent.putExtra("userName", nomeUsuario);
         startActivity(intent);
         finish();
     }

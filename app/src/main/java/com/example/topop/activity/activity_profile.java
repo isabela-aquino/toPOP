@@ -9,19 +9,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.topop.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class activity_profile extends AppCompatActivity {
 
     public Button btnListBook, btnListMovie, btnListSerie;
     public ImageView imageViewLogout;
+    private TextView textUsuarioProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        NomeUsuario();
 
         btnListBook = (Button) findViewById(R.id.btnListBooks);
         btnListMovie = (Button) findViewById(R.id.btnListMovies);
@@ -99,5 +104,14 @@ public class activity_profile extends AppCompatActivity {
     public void abrirListSeries(){
         Intent intent = new Intent(this, activity_list_serie.class);
         startActivity(intent);
+    }
+
+    public void NomeUsuario(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        textUsuarioProfile = (TextView) findViewById(R.id.textUserName);
+        textUsuarioProfile.setText(
+                textUsuarioProfile.getText().toString() + user.getDisplayName()
+        );
     }
 }
