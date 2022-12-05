@@ -43,7 +43,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:src="@mipmap/ic_book1_foreground" />
+                            android:src="@mipmap/img_anne_foreground" />
 
                         <TextView
                             android:id="@+id/tVListJaAssistiSerie1"
@@ -52,7 +52,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="Orgulho e Preconceito"
+                            android:text="Anne With an E"
                             android:textColor="#000000"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -75,7 +75,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:src="@mipmap/img_selecao_foreground" />
+                            android:src="@mipmap/img_bridgerton_foreground" />
 
                         <TextView
                             android:id="@+id/tVListJaAssistiSerie2"
@@ -84,7 +84,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="A seleção"
+                            android:text="Bridgerton"
                             android:textColor="#000000"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -120,7 +120,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:src="@mipmap/img_narnia_foreground" />
+                            android:src="@mipmap/img_manifest_foreground" />
 
                         <TextView
                             android:id="@+id/tVListJaAssistiSerie3"
@@ -129,7 +129,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="As cronicas de Narnia"
+                            android:text="Manifest"
                             android:textColor="#000000"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -153,7 +153,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:src="@mipmap/img_jogos_vorazes_foreground" />
+                            android:src="@mipmap/img_elite_foreground" />
 
                         <TextView
                             android:id="@+id/tVListJaAssistiSerie4"
@@ -162,7 +162,7 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="10dp"
                             android:gravity="center"
-                            android:text="Jogos Vorazes"
+                            android:text="Elite"
                             android:textColor="#000000"
                             android:textSize="16sp"
                             android:textStyle="bold" />

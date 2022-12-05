@@ -79,7 +79,7 @@
                         android:backgroundTint="#FFFFFF"
                         android:drawableLeft="@drawable/ic_movie_black"
                         android:shadowColor="#FFFFFF"
-                        android:text="35 Filmes"
+                        android:text="5 Filmes"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         app:strokeColor="#FFFFFF"
@@ -108,7 +108,7 @@
 
                         android:drawableLeft="@drawable/ic_serie_black"
                         android:shadowColor="#FFFFFF"
-                        android:text=" 10 Series"
+                        android:text=" 8 Series"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         app:strokeColor="#FFFFFF"
@@ -285,7 +285,7 @@
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:layout_weight="0.5"
-                            app:srcCompat="@mipmap/ic_book1_foreground" />
+                            app:srcCompat="@mipmap/img_stranger_foreground" />
 
                         <TextView
                             android:id="@+id/tv19"
@@ -293,7 +293,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="Orgulho e Preconceito"
+                            android:text="Stranger Things"
                             android:textColor="#000000" />
                     </LinearLayout>
                 </LinearLayout>
