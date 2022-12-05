@@ -88,7 +88,7 @@ public class activity_login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     telaPrincipal();
-                    nomeUsuario = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+                    nomeUsuario = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 } else {
                     String erro;
                     try{

@@ -20,10 +20,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.User;
 
 public class activity_pagina_inicial extends AppCompatActivity {
 
     private TextView textUsuario;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    String usuarioID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +64,20 @@ public class activity_pagina_inicial extends AppCompatActivity {
             }
         });
 
+
+
     }
 
     private void iniciarComponentes() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+        DocumentReference documentReference = db.collection("Usuários").document(usuarioID);
+
 
         textUsuario = (TextView) findViewById(R.id.txtBoasVindas);
         textUsuario.setText(
-                textUsuario.getText().toString() + "Hi, " + user.getDisplayName()
+                textUsuario.getText().toString() + "Hi, "
         );
     }
 

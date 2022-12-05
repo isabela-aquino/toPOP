@@ -50,7 +50,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
 
         // below line is use to set image from URL in our image view.
-        Picasso.get().load(bookInfo.getThumbnail()).error(R.drawable.img_indisponivel_background).into(holder.bookIV);
+
+        Picasso.get().load(R.mipmap.img_indisponivel_foreground).into(holder.bookIV);
+
 
         // below line is use to add on click listener for our item of recycler view.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +62,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 // and passing all the data of that item in next intent.
                 Intent i = new Intent(mcontext, activity_book_details.class);
                 i.putExtra("title", bookInfo.getTitle());
-                //i.putExtra("authors", bookInfo.getAuthors());
+                i.putStringArrayListExtra("authors", bookInfo.getAuthors());
                 i.putExtra("description", bookInfo.getDescription());
                 i.putExtra("thumbnail", bookInfo.getThumbnail());
 

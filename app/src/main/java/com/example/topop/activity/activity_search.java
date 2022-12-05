@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -46,6 +47,7 @@ public class activity_search extends AppCompatActivity {
 
 
     private EditText txtSearch;
+
     private static final Logger LOGGER = Logger.getLogger( activity_search.class.getName() );
 
 
@@ -60,6 +62,7 @@ public class activity_search extends AppCompatActivity {
 
 
         txtSearch = findViewById(R.id.txtSearch);
+
         ImageButton btnSearch = findViewById(R.id.imageButton);
 
 
@@ -143,17 +146,18 @@ public class activity_search extends AppCompatActivity {
                         JSONObject itemsObj = itemsArray.getJSONObject(i);
                         JSONObject volumeObj = itemsObj.getJSONObject("volumeInfo");
                         String title = volumeObj.getString("title");
-                        //JSONArray authorsArray = volumeObj.getJSONArray("authors");
-                        String description = volumeObj.getString("description");
-                        JSONObject imageLinks = volumeObj.getJSONObject("imageLinks");
-                        String thumbnail = imageLinks.getString("thumbnail");
-                       /* ArrayList<String> authorsArrayList = new ArrayList<>();
+                        JSONArray authorsArray = volumeObj.getJSONArray("authors");
+                        String description = volumeObj.optString("description");
+                        JSONObject imageLinks = volumeObj.optJSONObject("imageLinks");
+                        String thumbnail = imageLinks.optString("thumbnail");
+
+
+                        ArrayList<String> authorsArrayList = new ArrayList<>();
                         if (authorsArray.length() != 0) {
                             for (int j = 0; j < authorsArray.length(); j++) {
                                 authorsArrayList.add(authorsArray.optString(i));
                             }
-                        }*/
-
+                        }
 
 
                         // after extracting all the data we are
