@@ -10,9 +10,10 @@ public class Book {
     private String description;
     private String thumbnail;
 
-    public Book(String title, String description) {
+    public Book(String title, String description, String thumbnail) {
         this.title = title;
         this.description = description;
+        this.thumbnail = thumbnail;
     }
 
     public Book(String title, ArrayList<String> authors, String description) {

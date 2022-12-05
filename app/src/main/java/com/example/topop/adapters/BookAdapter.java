@@ -16,17 +16,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.topop.R;
 import com.example.topop.activity.activity_book_details;
 import com.example.topop.domain.Book;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
+
     // creating variables for arraylist and context.
-    private ArrayList<Book> BookArrayList;
+    private ArrayList<Book> bookInfoArrayList;
     private Context mcontext;
 
     // creating constructor for array list and context.
-    public BookAdapter(ArrayList<Book> BookArrayList, Context mcontext) {
-        this.BookArrayList = BookArrayList;
+    public BookAdapter(ArrayList<Book> bookInfoArrayList, Context mcontext) {
+        this.bookInfoArrayList = bookInfoArrayList;
         this.mcontext = mcontext;
     }
 
@@ -34,7 +36,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     @Override
     public BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflating our layout for item of recycler view item.
-        View view = LayoutInflater.from(mcontext).inflate(R.layout.book_rv_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.book_rv_item, parent, false);
         return new BookViewHolder(view);
     }
 
@@ -43,51 +45,49 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
         // inside on bind view holder method we are
         // setting ou data to each UI component.
-        Book book = BookArrayList.get(position);
-        holder.nameTV.setText(book.getTitle());
-        //holder.descriptionTV.setText(book.getDescription());
-        holder.authorTV.setText(book.getAuthors().toString());
-        //holder.bookIV.setImageBitmap(book.getThumbnail());
+        Book bookInfo = bookInfoArrayList.get(position);
+        holder.nameTV.setText(bookInfo.getTitle());
 
 
         // below line is use to set image from URL in our image view.
-        //Picasso.get().load(book.getThumbnail()).into(holder.bookIV);
+        Picasso.get().load(bookInfo.getThumbnail()).error(R.drawable.img_indisponivel_background).into(holder.bookIV);
 
         // below line is use to add on click listener for our item of recycler view.
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent i = new Intent(mcontext, activity_book_details.class);
-//                i.putExtra("title", book.getTitle());
-//                i.putExtra("authors", book.getAuthors());
-//                i.putExtra("description", book.getDescription());
-//                //i.putExtra("thumbnail", book.getThumbnail());
-//
-//                mcontext.startActivity(i);
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // inside on click listener method we are calling a new activity
+                // and passing all the data of that item in next intent.
+                Intent i = new Intent(mcontext, activity_book_details.class);
+                i.putExtra("title", bookInfo.getTitle());
+                //i.putExtra("authors", bookInfo.getAuthors());
+                i.putExtra("description", bookInfo.getDescription());
+                i.putExtra("thumbnail", bookInfo.getThumbnail());
+
+                // after passing that data we are
+                // starting our new  intent.
+                mcontext.startActivity(i);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         // inside get item count method we
         // are returning the size of our array list.
-        return BookArrayList.size();
+        return bookInfoArrayList.size();
     }
 
-    public static class BookViewHolder extends RecyclerView.ViewHolder {
+    public class BookViewHolder extends RecyclerView.ViewHolder {
         // below line is use to initialize
         // our text view and image views.
-        TextView nameTV, authorTV;
-        //ImageView bookIV;
+        TextView nameTV;
+        ImageView bookIV;
 
-        public BookViewHolder(@NonNull View itemView) {
+        public BookViewHolder(View itemView) {
             super(itemView);
-            nameTV = itemView.findViewById(R.id.TVTitle);
-            //bookIV = itemView.findViewById(R.id.IVImage);
-            authorTV = itemView.findViewById(R.id.TVAuthor);
-            //descriptionTV = itemView.findViewById(R.id.descriptionBook);
+            nameTV = itemView.findViewById(R.id.idTVBookTitle);
+            bookIV = itemView.findViewById(R.id.idIVbook);
         }
     }
 }

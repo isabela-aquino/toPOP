@@ -68,7 +68,7 @@
             <TextView
                 android:id="@+id/descriptionBook"
                 android:layout_width="297dp"
-                android:layout_height="86dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:text="Orgulho e preconceito é o livro mais famoso de Jane Austen e possui uma série de personagens inesquecíveis e um enredo memorável."
                 android:textAlignment="gravity"

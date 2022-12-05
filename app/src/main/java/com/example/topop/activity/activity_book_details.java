@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.squareup.picasso.Picasso;
 
 import com.example.topop.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -35,21 +36,22 @@ public class activity_book_details extends AppCompatActivity {
         setContentView(R.layout.activity_book_details);
 
         // initializing our views..
-        TextView titleTV = findViewById(R.id.titleBook);
-        TextView descTV = findViewById(R.id.descriptionBook);
+        titleTV = findViewById(R.id.titleBook);
+        descTV = findViewById(R.id.descriptionBook);
         //authorTV = findViewById(R.id.autoraLivro);
+        bookIV = findViewById(R.id.imageBook);
 
 
-        String title = getIntent().getStringExtra("title");
-        String description = getIntent().getStringExtra("description");
+        title = getIntent().getStringExtra("title");
+        description = getIntent().getStringExtra("description");
         //authors = getIntent().getStringArrayListExtra("authors");
-        //thumbnail = getIntent().getStringExtra("thumbnail");
+        thumbnail = getIntent().getStringExtra("thumbnail");
 
 
         titleTV.setText(title);
         descTV.setText(description);
         //authorTV.setText((CharSequence) authors);
-        //Picasso.get().load(thumbnail).into(bookIV);
+        Picasso.get().load(thumbnail).into(bookIV);
 
         btnVoltarBookDetails = (ImageView) findViewById(R.id.voltarBookDetails);
 
@@ -88,21 +90,6 @@ public class activity_book_details extends AppCompatActivity {
             }
         });
 
-        // initializing our views..
-        titleTV = findViewById(R.id.titleBook);
-        descTV = findViewById(R.id.descriptionBook);
-        //authorTV = findViewById(R.id.autoraLivro);
 
-
-        title = getIntent().getStringExtra("title");
-        description = getIntent().getStringExtra("description");
-        //authors = getIntent().getStringArrayListExtra("authors");
-        //thumbnail = getIntent().getStringExtra("thumbnail");
-
-
-        titleTV.setText(title);
-        descTV.setText(description);
-        //authorTV.setText((CharSequence) authors);
-        //Picasso.get().load(thumbnail).into(bookIV);
     }
 }

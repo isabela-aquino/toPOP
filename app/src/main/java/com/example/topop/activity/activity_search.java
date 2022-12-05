@@ -3,7 +3,6 @@ package com.example.topop.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +25,6 @@ import com.example.topop.R;
 import com.example.topop.adapters.BookAdapter;
 import com.example.topop.domain.Book;
 import com.example.topop.fragments.BooksRecyclerView;
-import com.example.topop.fragments.SearchBookFragment;
 import com.example.topop.fragments.SearchMovieFragment;
 import com.example.topop.fragments.SearchSerieFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -43,12 +41,10 @@ public class activity_search extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private BookAdapter adapter;
-    private ArrayList<Book> books;
+    private ArrayList<Book> bookInfoArrayList;
+    private RequestQueue mRequestQueue;
 
-    private SearchMovieFragment searchMovieFragment;
-    private BooksRecyclerView booksRecyclerView;
-    private SearchSerieFragment searchSerieFragment;
-    private Fragment fragment;
+
     private EditText txtSearch;
     private static final Logger LOGGER = Logger.getLogger( activity_search.class.getName() );
 
@@ -57,7 +53,7 @@ public class activity_search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        recyclerView = findViewById(R.id.frameConteudoBuscaRV);
+        recyclerView = findViewById(R.id.idRVBooks);
 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.TabLayoutSearch);
@@ -66,72 +62,21 @@ public class activity_search extends AppCompatActivity {
         txtSearch = findViewById(R.id.txtSearch);
         ImageButton btnSearch = findViewById(R.id.imageButton);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        booksRecyclerView = new BooksRecyclerView();
-        transaction.add(R.id.frameConteudoBuscaRV, booksRecyclerView);
-        fragment = booksRecyclerView;
-        transaction.commit();
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()) {
-                    case 0:
-                        LOGGER.info("clicked to search books");
-                        books = getBooksInfo(txtSearch.getText().toString());
-                        adapter = new BookAdapter(books, activity_search.this);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(activity_search.this,
-                                LinearLayoutManager.VERTICAL, false);
-                        recyclerView.setLayoutManager(layoutManager);
-                        recyclerView.setAdapter(adapter);
-                        //=========================================
-                        booksRecyclerView = new BooksRecyclerView();
-                        fragment = booksRecyclerView;
-                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBuscaRV, booksRecyclerView);
-                        transaction.commit();
-                        break;
-                    case 1:
-                        searchMovieFragment = new SearchMovieFragment();
-                        fragment = searchMovieFragment;
-                        transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBuscaRV, searchMovieFragment);
-                        transaction.commit();
-                        break;
-                    case 2:
-                        searchSerieFragment = new SearchSerieFragment();
-                        fragment = searchSerieFragment;
-                        transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBuscaRV, searchSerieFragment);
-                        transaction.commit();
-                        break;
-
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // checking if our edittext field is empty or not.
+                // checking if our edittext field is empty or not.
                 if (txtSearch.getText().toString().isEmpty()) {
                     txtSearch.setError("Please enter search query");
                     return;
                 }
-                if (fragment.getClass() == booksRecyclerView.getClass()) {
-                    getBooksInfo(txtSearch.getText().toString());
-                }
-
+                // if the search query is not empty then we are
+                // calling get book info method to load all
+                // the books from the API.
+                getBooksInfo(txtSearch.getText().toString());
             }
         });
 
@@ -165,14 +110,14 @@ public class activity_search extends AppCompatActivity {
 
     }
 
-    private ArrayList<Book> getBooksInfo(String query) {
+    private void getBooksInfo(String query) {
 
         // creating a new array list.
-        ArrayList<Book> bookInfoArrayList = new ArrayList<>();
+        bookInfoArrayList = new ArrayList<>();
 
         // below line is use to initialize
         // the variable for our request queue.
-        RequestQueue mRequestQueue = Volley.newRequestQueue(activity_search.this);
+        mRequestQueue = Volley.newRequestQueue(activity_search.this);
 
         // below line is use to clear cache this
         // will be use when our data is being updated.
@@ -190,6 +135,7 @@ public class activity_search extends AppCompatActivity {
         JsonObjectRequest booksObjrequest = new JsonObjectRequest(Request.Method.GET, url, (String) null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+
                 // inside on response method we are extracting all our json data.
                 try {
                     JSONArray itemsArray = response.getJSONArray("items");
@@ -197,31 +143,45 @@ public class activity_search extends AppCompatActivity {
                         JSONObject itemsObj = itemsArray.getJSONObject(i);
                         JSONObject volumeObj = itemsObj.getJSONObject("volumeInfo");
                         String title = volumeObj.getString("title");
-                        JSONArray authorsArray = volumeObj.getJSONArray("authors");
-                       // String description = volumeObj.getString("description");
-                        String description = volumeObj.getString("title");
-                        //JSONObject imageLinks = volumeObj.getJSONObject("imageLinks");
-                        //String thumbnail = imageLinks.getString("thumbnail");
-                       ArrayList<String> authorsArrayList = new ArrayList<>();
+                        //JSONArray authorsArray = volumeObj.getJSONArray("authors");
+                        String description = volumeObj.getString("description");
+                        JSONObject imageLinks = volumeObj.getJSONObject("imageLinks");
+                        String thumbnail = imageLinks.getString("thumbnail");
+                       /* ArrayList<String> authorsArrayList = new ArrayList<>();
                         if (authorsArray.length() != 0) {
                             for (int j = 0; j < authorsArray.length(); j++) {
                                 authorsArrayList.add(authorsArray.optString(i));
                             }
-                        }
+                        }*/
+
+
 
                         // after extracting all the data we are
                         // saving this data in our modal class.
-                        Book bookInfo = new Book(title, authorsArrayList, description);
+                        Book bookInfo = new Book(title, description, thumbnail);
 
                         // below line is use to pass our modal
                         // class in our array list.
                         bookInfoArrayList.add(bookInfo);
-                        LOGGER.info(bookInfoArrayList.toString());
+
+                        // below line is use to pass our
+                        // array list in adapter class.
+                        BookAdapter adapter = new BookAdapter(bookInfoArrayList, activity_search.this);
+
+                        // below line is use to add linear layout
+                        // manager for our recycler view.
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity_search.this, RecyclerView.VERTICAL, false);
+                        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.idRVBooks);
+
+                        // in below line we are setting layout manager and
+                        // adapter to our recycler view.
+                        mRecyclerView.setLayoutManager(linearLayoutManager);
+                        mRecyclerView.setAdapter(adapter);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                     // displaying a toast message when we get any error from API
-                    Toast.makeText(activity_search.this, "No Data Found " + e, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity_search.this, "No Data Found" + e, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -234,6 +194,6 @@ public class activity_search extends AppCompatActivity {
         // at last we are adding our json object
         // request in our request queue.
         queue.add(booksObjrequest);
-        return bookInfoArrayList;
+
     }
 }
