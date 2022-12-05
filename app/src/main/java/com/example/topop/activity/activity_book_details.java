@@ -34,6 +34,23 @@ public class activity_book_details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
 
+        // initializing our views..
+        TextView titleTV = findViewById(R.id.titleBook);
+        TextView descTV = findViewById(R.id.descriptionBook);
+        //authorTV = findViewById(R.id.autoraLivro);
+
+
+        String title = getIntent().getStringExtra("title");
+        String description = getIntent().getStringExtra("description");
+        //authors = getIntent().getStringArrayListExtra("authors");
+        //thumbnail = getIntent().getStringExtra("thumbnail");
+
+
+        titleTV.setText(title);
+        descTV.setText(description);
+        //authorTV.setText((CharSequence) authors);
+        //Picasso.get().load(thumbnail).into(bookIV);
+
         btnVoltarBookDetails = (ImageView) findViewById(R.id.voltarBookDetails);
 
         btnVoltarBookDetails.setOnClickListener(new View.OnClickListener() {
