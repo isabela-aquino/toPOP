@@ -25,7 +25,6 @@ import com.android.volley.toolbox.Volley;
 import com.example.topop.R;
 import com.example.topop.adapters.BookAdapter;
 import com.example.topop.domain.Book;
-import com.example.topop.fragments.BooksRecyclerView;
 import com.example.topop.fragments.SearchBookFragment;
 import com.example.topop.fragments.SearchMovieFragment;
 import com.example.topop.fragments.SearchSerieFragment;
@@ -46,8 +45,8 @@ public class activity_search extends AppCompatActivity {
     private ArrayList<Book> books;
 
     private SearchMovieFragment searchMovieFragment;
-    private BooksRecyclerView booksRecyclerView;
     private SearchSerieFragment searchSerieFragment;
+    private SearchBookFragment searchBookFragment;
     private Fragment fragment;
     private EditText txtSearch;
     private static final Logger LOGGER = Logger.getLogger( activity_search.class.getName() );
@@ -61,15 +60,12 @@ public class activity_search extends AppCompatActivity {
 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.TabLayoutSearch);
-
-
         txtSearch = findViewById(R.id.txtSearch);
         ImageButton btnSearch = findViewById(R.id.imageButton);
 
+        searchBookFragment = new SearchBookFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        booksRecyclerView = new BooksRecyclerView();
-        transaction.add(R.id.frameConteudoBuscaRV, booksRecyclerView);
-        fragment = booksRecyclerView;
+        transaction.add(R.id.frameConteudoBuscaRV, searchBookFragment);
         transaction.commit();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -85,24 +81,24 @@ public class activity_search extends AppCompatActivity {
                         recyclerView.setLayoutManager(layoutManager);
                         recyclerView.setAdapter(adapter);
                         //=========================================
-                        booksRecyclerView = new BooksRecyclerView();
-                        fragment = booksRecyclerView;
+                        searchBookFragment = new SearchBookFragment();
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBuscaRV, booksRecyclerView);
+                        fragment = searchBookFragment;
+                        transaction.replace(R.id.frameConteudoBuscaRV, fragment);
                         transaction.commit();
                         break;
                     case 1:
                         searchMovieFragment = new SearchMovieFragment();
                         fragment = searchMovieFragment;
                         transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBuscaRV, searchMovieFragment);
+                        transaction.replace(R.id.frameConteudoBuscaRV, fragment);
                         transaction.commit();
                         break;
                     case 2:
                         searchSerieFragment = new SearchSerieFragment();
                         fragment = searchSerieFragment;
                         transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frameConteudoBuscaRV, searchSerieFragment);
+                        transaction.replace(R.id.frameConteudoBuscaRV, fragment);
                         transaction.commit();
                         break;
 
@@ -128,10 +124,9 @@ public class activity_search extends AppCompatActivity {
                     txtSearch.setError("Please enter search query");
                     return;
                 }
-                if (fragment.getClass() == booksRecyclerView.getClass()) {
+                if (fragment.getClass() == searchBookFragment.getClass()) {
                     getBooksInfo(txtSearch.getText().toString());
                 }
-
             }
         });
 
