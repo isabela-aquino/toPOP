@@ -51,7 +51,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
         // below line is use to set image from URL in our image view.
 
-        Picasso.get().load(R.mipmap.img_indisponivel_foreground).into(holder.bookIV);
+        Picasso.get().load(bookInfo.getThumbnail()).into(holder.bookIV);
 
 
         // below line is use to add on click listener for our item of recycler view.

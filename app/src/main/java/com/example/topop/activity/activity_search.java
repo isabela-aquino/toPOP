@@ -25,9 +25,6 @@ import com.android.volley.toolbox.Volley;
 import com.example.topop.R;
 import com.example.topop.adapters.BookAdapter;
 import com.example.topop.domain.Book;
-import com.example.topop.fragments.BooksRecyclerView;
-import com.example.topop.fragments.SearchMovieFragment;
-import com.example.topop.fragments.SearchSerieFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -165,6 +162,7 @@ public class activity_search extends AppCompatActivity {
                         if (volumeObj.has("imageLinks")) {
                             JSONObject imageLinks = volumeObj.getJSONObject("imageLinks");
                             thumbnail = imageLinks.getString("thumbnail");
+                            System.out.println(thumbnail);
                         } else {
                             thumbnail = "https://amici.com.br/wp-content/uploads/sites/83/2020/04/imagem-indispon%C3%ADvel.jpg";
                             System.out.println(thumbnail);
